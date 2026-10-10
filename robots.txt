@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tattoostudio23.suryamaya-harum.chatgpt.site/sitemap.xml

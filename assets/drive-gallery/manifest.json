@@ -1,0 +1,19 @@
+{
+  "title": "Galeria curada do Drive — Studio 23 × Harum Noir",
+  "updated_at": "2026-09-29",
+  "policy": "Cópias públicas de imagens selecionadas do acervo autorizado. Nenhum link, identificador ou permissão do Drive é exposto. Estudos e propostas são identificados como tais; não são apresentados como tatuagens executadas.",
+  "items": [
+    {"file":"01-composicoes.webp","collection":"studio23","label":"Composições autorais","kind":"Projeto de tatuagem","alt":"Prancha de composições autorais em preto, cinza e dourado"},
+    {"file":"02-tattoo-anime.webp","collection":"studio23","label":"Tattoo anime · 12 estilos","kind":"Projeto de tatuagem","alt":"Coleção de propostas de tatuagem anime em doze estilos"},
+    {"file":"03-anime-tatuagens.webp","collection":"studio23","label":"Anime em tatuagens","kind":"Releitura autoral","alt":"Prancha de releituras autorais para tatuagem"},
+    {"file":"04-gojo.webp","collection":"studio23 noir","label":"Presença · Gojo","kind":"Releitura autoral","alt":"Estudo vertical de personagem em linguagem Harum Noir"},
+    {"file":"05-luffy.webp","collection":"studio23 noir","label":"Luffy · liberdade em traço","kind":"Releitura autoral","alt":"Estudo de personagem em preto, marfim e dourado"},
+    {"file":"06-catalogo-noir.webp","collection":"harum noir","label":"Arte que permanece","kind":"Catálogo editorial","alt":"Catálogo Harum Noir com estudos, símbolos e processo"},
+    {"file":"07-carvao-processo.webp","collection":"harum noir","label":"Carvão em processo","kind":"Bastidor de ateliê","alt":"Artista trabalhando com carvão em uma composição de ateliê"},
+    {"file":"08-prancha.webp","collection":"harum noir","label":"Estudo com prancha","kind":"Bastidor de ateliê","alt":"Estudo de desenho com prancha e materiais de ateliê"},
+    {"file":"09-artista.webp","collection":"harum noir","label":"Artista no estúdio","kind":"Bastidor de ateliê","alt":"Artista em um estúdio de desenho com luz quente"},
+    {"file":"10-maos.webp","collection":"harum noir","label":"Mãos · gesto e matéria","kind":"Estudo editorial","alt":"Estudo de mãos em sombra e luz dourada"},
+    {"file":"11-maos-triptych.webp","collection":"harum noir","label":"Mãos · tríptico","kind":"Estudo editorial","alt":"Tríptico de estudos de mãos em preto e dourado"},
+    {"file":"12-caderno.webp","collection":"harum noir","label":"Caderno como universo","kind":"Imagem editorial","alt":"Mesa de ateliê com cadernos, referências e carvão"}
+  ]
+}

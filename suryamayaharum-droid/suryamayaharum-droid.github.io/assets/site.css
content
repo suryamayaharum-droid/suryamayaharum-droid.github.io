@@ -1,0 +1,239 @@
+
+// Harum AI assistant: local, zero-cost, product-aware guidance
+(function () {
+  const knowledge = {
+    brand: 'Studio 23 / Arte Harum',
+    city: 'Salvador',
+    contact: 'https://wa.me/5571994091575',
+    services: [
+      'Tatuagem autoral',
+      'Projetos personalizados',
+      'Consultoria visual',
+      'Estudos e referências',
+      'Atendimento de projeto e caderno de processo'
+    ],
+    quick: [
+      'Quero uma tatuagem minimalista',
+      'Como funciona o agendamento?',
+      'Qual estilo combina comigo?',
+      'Mostre o portfólio',
+      'Preciso de uma referência'
+    ],
+    pages: {
+      portfolio: '/portfolio/',
+      biblioteca: '/biblioteca/',
+      agendar: '/agendar/',
+      faq: '/faq/',
+      cuidados: '/cuidados/',
+      sobre: '/sobre/'
+    },
+    styles: {
+      minimalista: 'Minimalista: linhas limpas, volume controlado, leitura rápida, bons para dedos, pulsos e pequenas peças.',
+      floral: 'Floral: ornamento, movimento, botânica, dinamicidade e forte identidade artística.',
+      blackwork: 'Blackwork: contraste intenso, grafismo, preenchimento denso e presença marcante.',
+      realista: 'Realista: volume, detalhe, cinema e interpretação do corpo em profundidade.',
+      ornamental: 'Ornamental: simetria, padrões, arabescos e presença decorativa.',
+      fine_line: 'Fine line: delicadeza, traço fino, clareza e sutileza.'
+    }
+  };
+
+  function buildMessage(text, type = 'bot') {
+    const el = document.createElement('div');
+    el.className = 'harum-ai-message ' + (type === 'user' ? 'user' : 'bot');
+    el.textContent = text;
+    return el;
+  }
+
+  function detectStyle(text) {
+    const lower = text.toLowerCase();
+    if (lower.includes('minimal') || lower.includes('fineline') || lower.includes('fine line')) return knowledge.styles.fine_line;
+    if (lower.includes('floral') || lower.includes('botan') || lower.includes('flor')) return knowledge.styles.floral;
+    if (lower.includes('blackwork') || lower.includes('preto') || lower.includes('grafite')) return knowledge.styles.blackwork;
+    if (lower.includes('realist') || lower.includes('detal') || lower.includes('anatom')) return knowledge.styles.realista;
+    if (lower.includes('ornamen') || lower.includes('padr')) return knowledge.styles.ornamental;
+    return null;
+  }
+
+  function respondTo(text) {
+    const normalized = text.trim();
+    if (!normalized) return 'Claro. Conte um pouco do que você imagina e eu te direciono melhor.';
+
+    const lower = normalized.toLowerCase();
+
+    if (lower.includes('agendar') || lower.includes('horario') || lower.includes('projeto') || lower.includes('atendimento') || lower.includes('como funciona')) {
+      return 'O processo começa com uma conversa inicial: você conta a ideia, referências e o que sente. Depois eu te retorno com indicação de estilo, posicionamento e viabilidade. Para avançar, use o botão de agendar no site ou envie a ideia pelo WhatsApp.';
+    }
+
+    if (lower.includes('portfolio') || lower.includes('trabalho') || lower.includes('ver projetos') || lower.includes('tattoos') || lower.includes('artes')) {
+      return 'Você pode explorar o portfólio documental do Studio 23 e também a Biblioteca Harum Noir para sentir a linguagem visual. Acesse /portfolio/ e /biblioteca/ para navegar.';
+    }
+
+    if (lower.includes('faq') || lower.includes('perguntas') || lower.includes('dúvida') || lower.includes('duvida')) {
+      return 'A área de FAQ responde dúvidas sobre projeto, conversa inicial, cuidados e fluxo do atendimento. Ela é a melhor primeira parada antes de agendar.';
+    }
+
+    if (lower.includes('cuidados') || lower.includes('pós') || lower.includes('após')) {
+      return 'A etapa de cuidados é importante para a cicatrização e preservação do trabalho. O material do studio também orienta sobre a rotina correta depois da sessão.';
+    }
+
+    if (lower.includes('localiza') || lower.includes('salvador') || lower.includes('onde')) {
+      return 'O Studio 23/Arte Harum está em Salvador e o site já traz a parte de localização e contato para facilitar o primeiro passo.';
+    }
+
+    if (lower.includes('estilo') || lower.includes('combina') || lower.includes('ref')) {
+      const style = detectStyle(lower);
+      if (style) return style + ' Se quiser, eu posso sugerir a melhor direção para sua ideia e te ajudar a organizar a referência.';
+      return 'A escolha do estilo depende do lugar do corpo, do clima visual e da mensagem que você quer transmitir. Podemos explorar minimalista, floral, blackwork, ornamental ou realista.';
+    }
+
+    if (lower.includes('minimal') || lower.includes('fine line') || lower.includes('blackwork') || lower.includes('floral') || lower.includes('ornamental') || lower.includes('realist')) {
+      const style = detectStyle(lower);
+      return style + ' Se você quiser, eu posso te orientar para uma ideia mais precisa e compatível com o seu corpo e objetivo.';
+    }
+
+    if (lower.includes('ola') || lower.includes('oi') || lower.includes('hello')) {
+      return 'Olá! Sou o assistente do Studio 23. Posso te ajudar a navegar pelo portfólio, entender o processo, filtrar estilos ou preparar um projeto para conversar.';
+    }
+
+    if (lower.includes('preco') || lower.includes('valor') || lower.includes('orcamento') || lower.includes('orçamento')) {
+      return 'O valor varia conforme tamanho, complexidade, cobertura e técnica. O ideal é compartilhar a ideia e a referência para que a conversa inicial tenha um direcionamento correto.';
+    }
+
+    if (lower.includes('sobre') || lower.includes('studio') || lower.includes('arte harum')) {
+      return 'O Studio 23 e a Arte Harum trabalham entre tatuagem autoral, estudos visuais e linguagem editorial. O site foi pensado para conectar arte, processo e projeto do cliente.';
+    }
+
+    if (lower.includes('whatsapp') || lower.includes('falar') || lower.includes('contato')) {
+      return 'Você pode falar direto com o estúdio pelo WhatsApp e levar a sua ideia ou referência para a primeira conversa.';
+    }
+
+    return 'Posso te ajudar a navegar pelo portfólio, escolher um estilo, responder dúvidas sobre o processo ou te guiar para agendar o projeto. Me diga o que você imagina ou selecione uma opção abaixo.';
+  }
+
+  function initHarumAI() {
+    if (document.querySelector('[data-harum-ai]')) return;
+
+    const panel = document.createElement('aside');
+    panel.className = 'harum-ai-panel';
+    panel.dataset.harumAi = 'true';
+    panel.hidden = true;
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-label', 'Assistente do Studio 23');
+
+    const header = document.createElement('div');
+    header.className = 'harum-ai-header';
+    header.innerHTML = '<div><span>Harum AI</span><strong>Studio 23</strong></div><button type="button" class="harum-ai-close" aria-label="Fechar assistente">×</button>';
+
+    const messages = document.createElement('div');
+    messages.className = 'harum-ai-messages';
+    messages.setAttribute('aria-live', 'polite');
+
+    messages.appendChild(buildMessage('Olá! Sou o assistente do Studio 23. Posso te ajudar com estilo, processo, portfólio e agendamento.'));
+
+    const quickRow = document.createElement('div');
+    quickRow.className = 'harum-ai-quick';
+    knowledge.quick.forEach((item) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'harum-ai-chip';
+      button.textContent = item;
+      button.addEventListener('click', () => {
+        const current = input.value.trim();
+        input.value = current ? current + ' ' + item : item;
+        form.requestSubmit();
+      });
+      quickRow.appendChild(button);
+    });
+
+    const form = document.createElement('form');
+    form.className = 'harum-ai-form';
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.placeholder = 'Pergunte sobre o projeto...';
+    input.setAttribute('aria-label', 'Digite sua pergunta');
+    const send = document.createElement('button');
+    send.type = 'submit';
+    send.textContent = 'Enviar';
+    form.append(input, send);
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const question = input.value.trim();
+      if (!question) return;
+      messages.appendChild(buildMessage(question, 'user'));
+      input.value = '';
+      const answer = respondTo(question);
+      window.setTimeout(() => {
+        messages.appendChild(buildMessage(answer));
+        messages.scrollTop = messages.scrollHeight;
+      }, 150);
+    });
+
+    panel.append(header, messages, quickRow, form);
+
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'harum-ai-toggle';
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', 'harum-ai-panel');
+    toggle.innerHTML = '<span>Harum AI</span>';
+
+    const openPanel = () => {
+      panel.hidden = false;
+      toggle.setAttribute('aria-expanded', 'true');
+      input.focus();
+    };
+
+    const closePanel = () => {
+      panel.hidden = true;
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+
+    toggle.addEventListener('click', () => {
+      if (panel.hidden) openPanel();
+      else closePanel();
+    });
+    header.querySelector('.harum-ai-close').addEventListener('click', closePanel);
+
+    document.body.appendChild(panel);
+    document.body.appendChild(toggle);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initHarumAI();
+
+    const nav = document.querySelector('#primary-nav');
+    if (nav) {
+      const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
+      nav.querySelectorAll('a').forEach((link) => {
+        const href = (link.getAttribute('href') || '').replace(/\/$/, '');
+        if (href === currentPath || (currentPath === '/' && href === '')) {
+          link.setAttribute('aria-current', 'page');
+          link.classList.add('current');
+        }
+      });
+    }
+  });
+})();
+
+window.addEventListener('load', () => {
+  const forms = document.querySelectorAll('#brief-form, form[data-brief]');
+  forms.forEach((form) => {
+    if (form.dataset.harumReady === 'true') return;
+    form.dataset.harumReady = 'true';
+    form.addEventListener('submit', (event) => {
+      const submitButton = form.querySelector('button[type="submit"]');
+      if (submitButton) {
+        submitButton.textContent = 'Redirecionando...';
+      }
+      const data = new FormData(form);
+      const place = data.get('local') || 'presencial';
+      const idea = data.get('ideia') || data.get('idea') || 'Quero começar um projeto';
+      const text = `Olá, vim pelo site do Studio 23. Preferência de atendimento: ${place}. Minha ideia: ${idea}`;
+      window.location.href = 'https://wa.me/5571994091575?text=' + encodeURIComponent(text);
+      event.preventDefault();
+    });
+  });
+});
+

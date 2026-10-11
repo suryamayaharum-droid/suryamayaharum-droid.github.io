@@ -1,4 +1,3 @@
-
 const year=document.getElementById('year');
 if(year) year.textContent=new Date().getFullYear();
 
@@ -241,10 +240,22 @@ if(libraryRoot){
 }
 
 (function(){
+  const path=window.location.pathname;
+  const routeMeta={
+    '/portfolio/':{label:'Portfólio', prompt:'Explore os projetos e desenhos disponíveis no estúdio.'},
+    '/biblioteca/':{label:'Biblioteca', prompt:'Veja estudos, referências e categorias visuais.'},
+    '/agendar/':{label:'Agendar', prompt:'Organize sua ideia e prepare a conversa inicial.'},
+    '/faq/':{label:'FAQ', prompt:'Confira dúvidas frequentes antes de começar o projeto.'},
+    '/cuidados/':{label:'Cuidados', prompt:'Entenda a rotina correta após a sessão.'},
+    '/sobre/':{label:'Sobre', prompt:'Conheça o ateliê, a linguagem e a proposta artística.'},
+    '/localizacao/':{label:'Localização', prompt:'Veja como chegar ao ateliê em Salvador.'},
+    '/contato/':{label:'Contato', prompt:'Entre em contato e envie sua ideia.'}
+  };
+  const currentRoute=routeMeta[path]||{label:'Página atual', prompt:'Use o site para entender melhor o fluxo do estúdio.'};
   const aiKnowledge = {
     brand: 'Studio 23 / Arte Harum',
     city: 'Salvador',
-    intro: 'Olá! Sou o assistente do Studio 23. Posso te ajudar com estilo, processo, portfólio, FAQ e agendamento.',
+    intro: 'Olá! Sou o assistente do Studio 23. Posso te ajudar com estilo, processo, portfólio e agendamento.',
     quick: [
       'Quero uma tatuagem minimalista',
       'Como funciona o agendamento?',
@@ -283,41 +294,42 @@ if(libraryRoot){
     const value=(question||'').trim();
     if(!value) return 'Claro. Me diga o que você imagina ou escolha uma opção abaixo.';
     const lower=value.toLowerCase();
+    const routeContext=`Você está em ${currentRoute.label}. ${currentRoute.prompt}`;
 
     if(lower.includes('agendar')||lower.includes('como funciona')||lower.includes('processo')||lower.includes('atendimento')){
-      return 'O processo começa com uma conversa inicial: você conta a ideia, referências e o que deseja sentir no corpo. Depois, o estúdio orienta estilo, posição e viabilidade do projeto, e você pode seguir para o WhatsApp para fechar a conversa.';
+      return `${routeContext} O processo começa com uma conversa inicial: você conta a ideia, referências e o que deseja sentir no corpo. Depois, o estúdio orienta estilo, posição e viabilidade do projeto, e você pode seguir para o WhatsApp para fechar a conversa.`;
     }
     if(lower.includes('portifolio')||lower.includes('portfólio')||lower.includes('trabalhos')||lower.includes('portfolio')){
-      return 'Você pode navegar pelo portfólio do Studio 23 e pela Biblioteca Harum Noir para entender melhor a linguagem visual e a variedade de estilos dentro do ateliê.';
+      return `${routeContext} Você pode navegar pelo portfólio do Studio 23 e pela Biblioteca Harum Noir para entender melhor a linguagem visual e a variedade de estilos dentro do ateliê.`;
     }
     if(lower.includes('faq')||lower.includes('duvida')||lower.includes('dúvida')||lower.includes('perguntas')){
-      return 'A área de FAQ responde dúvidas práticas sobre projeto, critérios, estética e comportamento antes e depois da sessão. É a melhor primeira parada antes de agendar.';
+      return `${routeContext} A área de FAQ responde dúvidas práticas sobre projeto, critérios, estética e comportamento antes e depois da sessão. É a melhor primeira parada antes de agendar.`;
     }
     if(lower.includes('cuidados')||lower.includes('pos')||lower.includes('pós')){
-      return 'A etapa de cuidados é essencial para a cicatrização e preservação do trabalho. A orientação correta ajuda a manter a peça nítida e segura no processo.';
+      return `${routeContext} A etapa de cuidados é essencial para a cicatrização e preservação do trabalho. A orientação correta ajuda a manter a peça nítida e segura no processo.`;
     }
     if(lower.includes('salvador')||lower.includes('local')||lower.includes('onde')){
       return 'O Studio 23 está em Salvador e trabalha entre tatuagem autoral, estudos visuais e um processo mais cuidadoso de criação e atendimento.';
     }
     if(lower.includes('estilo')||lower.includes('combina')||lower.includes('refe')||lower.includes('refer')){
       const style=detectStyle(lower);
-      if(style) return style + ' Se quiser, você pode me contar mais sobre a peça que imagina e eu te direciono para a melhor proposta.';
-      return 'A melhor direção depende do corpo, do tema, da intenção e do nível de detalhe que você quer. Minimalista, floral, blackwork, ornamental e realista são caminhos muito comuns no ateliê.';
+      if(style) return `${routeContext} ${style} Se quiser, você pode me contar mais sobre a peça que imagina e eu te direciono para a melhor proposta.`;
+      return `${routeContext} A melhor direção depende do corpo, do tema, da intenção e do nível de detalhe que você quer. Minimalista, floral, blackwork, ornamental e realista são caminhos muito comuns no ateliê.`;
     }
     if(lower.includes('ola')||lower.includes('oi')||lower.includes('hello')) return aiKnowledge.intro;
     if(lower.includes('valor')||lower.includes('preço')||lower.includes('preco')||lower.includes('orcamento')){
-      return 'O valor depende de tamanho, traço, complexidade, técnica e tempo de execução. O melhor é compartilhar a ideia e a referência para ter uma conversa mais precisa.';
+      return `${routeContext} O valor depende de tamanho, traço, complexidade, técnica e tempo de execução. O melhor é compartilhar a ideia e a referência para ter uma conversa mais precisa.`;
     }
     if(lower.includes('whatsapp')||lower.includes('contato')||lower.includes('falar')){
-      return 'Você pode abrir conversa direta com o estúdio pelo WhatsApp para levar a ideia, a referência e os detalhes do projeto.';
+      return `${routeContext} Você pode abrir conversa direta com o estúdio pelo WhatsApp para levar a ideia, a referência e os detalhes do projeto.`;
     }
     if(lower.includes('sobre')||lower.includes('studio')||lower.includes('arte harum')){
-      return 'O Studio 23 e a Arte Harum conectam tatuagem autoral, estudos visuais e processo de criação. O foco está em fazer a arte funcionar como identidade, memória e presença.';
+      return `${routeContext} O Studio 23 e a Arte Harum conectam tatuagem autoral, estudos visuais e processo de criação. O foco está em fazer a arte funcionar como identidade, memória e presença.`;
     }
 
     const style=detectStyle(lower);
-    if(style) return style + ' Se quiser, posso te ajudar a transformar isso em uma proposta de projeto mais clara e objetiva.';
-    return 'Posso te ajudar a navegar pelo portfólio, entender o processo, escolher um estilo e te direcionar para o agendamento. Conte-me um pouco da sua ideia e eu te retorno com uma direção melhor.';
+    if(style) return `${routeContext} ${style} Se quiser, posso te ajudar a transformar isso em uma proposta de projeto mais clara e objetiva.`;
+    return `${routeContext} Posso te ajudar a navegar pelo portfólio, entender o processo, escolher um estilo e te direcionar para o agendamento. Conte-me um pouco da sua ideia e eu te retorno com uma direção melhor.`;
   }
 
   const existing=document.querySelector('[data-harum-ai]');
@@ -347,13 +359,22 @@ if(libraryRoot){
     button.className='harum-ai-chip';
     button.textContent=item;
     button.addEventListener('click',()=>{
-      const form = panel.querySelector('.harum-ai-form');
-      const input = form && form.querySelector('input');
+      const input=panel.querySelector('.harum-ai-form input');
       if(!input) return;
-      input.value = item;
-      form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+      input.value=item;
+      panel.querySelector('.harum-ai-form').dispatchEvent(new Event('submit',{cancelable:true,bubbles:true}));
     });
     quick.appendChild(button);
+  });
+
+  const contextLinks=document.createElement('div');
+  contextLinks.className='harum-context-links';
+  const pages=[['/portfolio/','Portfólio'],['/biblioteca/','Biblioteca'],['/agendar/','Agendar'],['/faq/','FAQ']];
+  pages.forEach(([href,label])=>{
+    const a=document.createElement('a');
+    a.href=href;
+    a.textContent=label;
+    contextLinks.appendChild(a);
   });
 
   const form=document.createElement('form');
@@ -378,7 +399,7 @@ if(libraryRoot){
     },180);
   });
 
-  panel.append(head, messages, quick, form);
+  panel.append(head, messages, quick, contextLinks, form);
 
   const toggle=document.createElement('button');
   toggle.type='button';
@@ -412,4 +433,3 @@ window.addEventListener('load',()=>{
     });
   });
 });
-

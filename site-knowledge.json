@@ -1,0 +1,62 @@
+{
+  "name": "Tattoo Studio 23 × Arte Harum",
+  "primaryLanguage": "pt-BR",
+  "region": "Salvador, Bahia, Brazil",
+  "entities": [
+    {
+      "name": "Tattoo Studio 23",
+      "type": "TattooParlor",
+      "role": "documented tattoo portfolio and booking"
+    },
+    {
+      "name": "Arte Harum",
+      "type": "CreativeWorkSeries",
+      "role": "artistic research, drawing and tattoo composition"
+    },
+    {
+      "name": "Harum Noir",
+      "type": "CreativeWorkSeries",
+      "role": "charcoal, figure, anatomy, gesture and editorial process"
+    }
+  ],
+  "topics": [
+    "authorial tattoo",
+    "fine line",
+    "blackwork",
+    "sketch tattoo",
+    "charcoal drawing",
+    "artistic anatomy",
+    "live model",
+    "classical sculpture",
+    "botanical composition",
+    "art history"
+  ],
+  "serviceFacts": {
+    "appointmentOnly": true,
+    "locations": [
+      {
+        "name": "Paripe",
+        "role": "private atelier",
+        "addressPolicy": "address shared after booking"
+      },
+      {
+        "name": "Pituba",
+        "role": "sessions may occur at another studio according to schedule",
+        "isStudio23Branch": false
+      }
+    ],
+    "referencePolicy": "references inform language, atmosphere, scale and symbols; final compositions are developed for the client and body placement"
+  },
+  "internationalGateways": {
+    "en": "https://suryamayaharum-droid.github.io/astro-blog-starter-template/en/tattoo-salvador/",
+    "es": "https://suryamayaharum-droid.github.io/astro-blog-starter-template/es/tatuaje-salvador/"
+  },
+  "routes": {
+    "portfolio": "https://suryamayaharum-droid.github.io/portfolio/",
+    "harumNoir": "https://suryamayaharum-droid.github.io/harum-noir/",
+    "recentGallery": "https://suryamayaharum-droid.github.io/harum-noir/modelo-vivo/recentes/",
+    "library": "https://suryamayaharum-droid.github.io/biblioteca/",
+    "booking": "https://suryamayaharum-droid.github.io/agendar/",
+    "atlas": "https://suryamayaharum-droid.github.io/astro-blog-starter-template/referencias/"
+  }
+}

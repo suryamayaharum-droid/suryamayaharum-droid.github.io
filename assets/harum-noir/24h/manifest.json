@@ -1,0 +1,89 @@
+{
+  "collection": "HARUM NOIR — 24 horas com a modelo viva",
+  "type": "fotografia editorial gerada digitalmente",
+  "version": 1,
+  "publishedScenes": 6,
+  "plannedScenes": 24,
+  "license": "Uso editorial Arte Harum; direitos de terceiros devem ser verificados antes de redistribuição.",
+  "images": [
+    {
+      "id": "01",
+      "title": "Chegada ao ateliê",
+      "subtitle": "O primeiro contato com a luz",
+      "focus": "Observe a transferência de peso e as linhas do quadril. Faça um desenho rápido de 1 minuto.",
+      "src": "/assets/harum-noir/24h/01-chegada.jpg",
+      "alt": "Modelo viva adulta chegando ao ateliê de arte com uma bolsa, entre cavaletes e desenhos."
+    },
+    {
+      "id": "02",
+      "title": "O primeiro traço",
+      "subtitle": "As mãos iniciam o encontro",
+      "focus": "Estude a relação entre punho, dedos e carvão. Não apague as linhas de construção.",
+      "src": "/assets/harum-noir/24h/02-primeiro-traco.jpg",
+      "alt": "Modelo viva de cabelo chanel desenhando com carvão sobre papel no ateliê."
+    },
+    {
+      "id": "03",
+      "title": "O olhar e a presença",
+      "subtitle": "O rosto não precisa atuar",
+      "focus": "Observe pálpebras, arco da sobrancelha, nariz e a orientação da cabeça.",
+      "src": "/assets/harum-noir/24h/03-olhar.jpg",
+      "alt": "Retrato próximo da personagem HARUM NOIR de cabelo chanel sob luz lateral dourada."
+    },
+    {
+      "id": "04",
+      "title": "A linha do balé",
+      "subtitle": "Um corpo entre dois movimentos",
+      "focus": "Procure eixo, extensão, tornozelo e o ritmo dos braços antes de detalhar.",
+      "src": "/assets/harum-noir/24h/04-bale.jpg",
+      "alt": "Modelo viva em arabesque de balé no ateliê com a perna estendida e os braços abertos."
+    },
+    {
+      "id": "05",
+      "title": "O retrato e a pausa",
+      "subtitle": "Quando ela contempla o desenho",
+      "focus": "Compare a cabeça observada com o retrato no cavalete. Trabalhe proporção e olhar.",
+      "src": "/assets/harum-noir/24h/05-retrato-e-pausa.jpg",
+      "alt": "Modelo viva sentada contemplando um retrato em carvão de si mesma em um cavalete."
+    },
+    {
+      "id": "06",
+      "title": "No espelho",
+      "subtitle": "Dois ângulos de uma presença",
+      "focus": "Compare a visão posterior com o rosto refletido; desenhe as direções opostas.",
+      "src": "/assets/harum-noir/24h/06-espelho.jpg",
+      "alt": "Modelo viva vista de costas diante de espelho grande, com o rosto refletido na cena."
+    }
+  ],
+  "studySheets": [
+    {
+      "id": "07",
+      "title": "Estudos de mãos",
+      "focus": "Punhos, dedos, extensão e articulações",
+      "src": "/assets/harum-noir/24h/07-estudos-de-maos.jpg",
+      "alt": "Prancha acadêmica HARUM NOIR de estudos de mãos com a mesma personagem de cabelo chanel."
+    },
+    {
+      "id": "08",
+      "title": "Rosto e olhar",
+      "focus": "Eixos faciais, pálpebras e perfil",
+      "src": "/assets/harum-noir/24h/08-rosto-e-olhar.jpg",
+      "alt": "Prancha acadêmica HARUM NOIR de rosto e olhar com a mesma personagem de cabelo chanel."
+    },
+    {
+      "id": "09",
+      "title": "Estrutura e membros",
+      "focus": "Ombros, coluna, pernas e apoios",
+      "src": "/assets/harum-noir/24h/09-estrutura-e-membros.jpg",
+      "alt": "Prancha acadêmica HARUM NOIR de estrutura e membros com a mesma personagem de cabelo chanel."
+    },
+    {
+      "id": "10",
+      "title": "Balé e gesto",
+      "focus": "Linhas de ação, equilíbrio e movimento",
+      "src": "/assets/harum-noir/24h/10-bale-e-gesto.jpg",
+      "alt": "Prancha acadêmica HARUM NOIR de balé e gesto com a mesma personagem de cabelo chanel."
+    }
+  ],
+  "visualAssets": 10
+}

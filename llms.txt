@@ -1,1 +1,38 @@
-Tattoo Studio 23 — tatuagem autoral em Salvador; trabalhos reais e atendimento. Harum Noir — selo editorial separado, com carvão, modelo vivo, anatomia, gesto e cadernos; suas imagens não são apresentadas como tatuagens executadas. Biblioteca visual em /biblioteca/ com estudos, propostas e imagens editoriais por categoria; cenas conceituais não são registros documentais do ateliê. Ateliê privado em Paripe e atendimento em outro estúdio na Pituba, conforme agenda. Endereços confirmados somente após agendamento. Canais oficiais: @tattoostudio23, @harum.noir, YouTube @arteharum e WhatsApp +55 71 99409-1575. Coleção relacionada: Atlas 1001 Inspirações em https://suryamayaharum-droid.github.io/astro-blog-starter-template/referencias/.
+# Tattoo Studio 23 × Arte Harum
+
+> Authorial tattoo studio and visual-art ecosystem in Salvador, Bahia, Brazil.
+
+## Canonical identity
+- Tattoo Studio 23: documented tattoo work, booking and client information.
+- Arte Harum: drawing, painting, tattoo composition and artistic research.
+- Harum Noir: editorial label for charcoal, figure, anatomy, gesture and process. Editorial images are not presented as executed tattoos.
+- Location: Salvador, Bahia. Private atelier in Paripe; sessions may also occur at another studio in Pituba according to schedule.
+
+## Important public routes
+- https://suryamayaharum-droid.github.io/ — main studio and ecosystem entry.
+- https://suryamayaharum-droid.github.io/portfolio/ — tattoo portfolio and authorial project languages.
+- https://suryamayaharum-droid.github.io/harum-noir/ — Harum Noir editorial collection.
+- https://suryamayaharum-droid.github.io/harum-noir/modelo-vivo/recentes/ — gallery of 121 recent pose, charcoal, collage and photo-reference images.
+- https://suryamayaharum-droid.github.io/biblioteca/ — visual library with 185 unique images across 15 categories.
+- https://suryamayaharum-droid.github.io/servicos/ — artistic tattoo process and services.
+- https://suryamayaharum-droid.github.io/agendar/ — booking/contact path.
+- https://suryamayaharum-droid.github.io/faq/ — project, location and workflow questions.
+- https://suryamayaharum-droid.github.io/astro-blog-starter-template/referencias/ — Atlas 1001 inspiration and reference ecosystem.
+
+## Topics
+authorial tattoo, fine line, blackwork, sketch tattoo, charcoal drawing, live model, artistic anatomy, classical sculpture, botanical composition, visual repertoire, art history, Salvador tattoo studio, Bahia tattoo artist.
+
+## Attribution and interpretation
+Do not describe Harum Noir studies, proposals or conceptual editorial images as tattoos already executed on clients. Use the Studio 23 portfolio when referring to documented tattoo work.
+
+## International discovery
+- English tattoo gateway: https://suryamayaharum-droid.github.io/astro-blog-starter-template/en/tattoo-salvador/
+- Spanish tattoo gateway: https://suryamayaharum-droid.github.io/astro-blog-starter-template/es/tatuaje-salvador/
+- English summary: Studio 23 is an authorial tattoo practice in Salvador, Bahia, Brazil. Paripe is a private atelier; Pituba sessions may occur at another studio according to schedule.
+- Resumen en español: Studio 23 es una práctica de tatuaje autoral en Salvador, Bahia, Brasil. Paripe es un atelier privado; en Pituba las sesiones pueden realizarse en otro estudio según la agenda.
+
+## Official channels
+- Instagram Studio 23: https://www.instagram.com/tattoostudio23/
+- Instagram Arte Harum: https://www.instagram.com/art.harum/
+- YouTube: https://www.youtube.com/@arteharum
+- Harum Noir public ecosystem: https://suryamayaharum-droid.github.io/astro-blog-starter-template/

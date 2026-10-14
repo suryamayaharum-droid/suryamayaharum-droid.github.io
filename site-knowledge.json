@@ -29,7 +29,10 @@
     "live model",
     "classical sculpture",
     "botanical composition",
-    "art history"
+    "art history",
+    "bridal portrait studies",
+    "editorial art studies",
+    "composition process"
   ],
   "serviceFacts": {
     "appointmentOnly": true,
@@ -57,6 +60,20 @@
     "recentGallery": "https://suryamayaharum-droid.github.io/harum-noir/modelo-vivo/recentes/",
     "library": "https://suryamayaharum-droid.github.io/biblioteca/",
     "booking": "https://suryamayaharum-droid.github.io/agendar/",
-    "atlas": "https://suryamayaharum-droid.github.io/astro-blog-starter-template/referencias/"
-  }
+    "atlas": "https://suryamayaharum-droid.github.io/astro-blog-starter-template/referencias/",
+    "bridalStudies": "https://suryamayaharum-droid.github.io/noivas/",
+    "bridalCatalog": "https://suryamayaharum-droid.github.io/noivas/catalogo-completo.html",
+    "bridalVolume6": "https://suryamayaharum-droid.github.io/noivas/inspiracoes-6.html",
+    "bridalCompositionStudies": "https://suryamayaharum-droid.github.io/noivas/estudos-composicao.html"
+  },
+  "creativeCollections": [
+    {
+      "name": "Projeto Noivas",
+      "route": "https://suryamayaharum-droid.github.io/noivas/catalogo-completo.html",
+      "volumes": 6,
+      "artStudies": 192,
+      "processSequences": 28,
+      "editorialNotice": "Estudos editoriais gerados com assistência de IA; personagens imaginadas e referências amplas, sem reproduzir obras específicas."
+    }
+  ]
 }

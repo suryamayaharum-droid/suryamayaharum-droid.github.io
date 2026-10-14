@@ -64,15 +64,16 @@
     "bridalStudies": "https://suryamayaharum-droid.github.io/noivas/",
     "bridalCatalog": "https://suryamayaharum-droid.github.io/noivas/catalogo-completo.html",
     "bridalVolume6": "https://suryamayaharum-droid.github.io/noivas/inspiracoes-6.html",
-    "bridalCompositionStudies": "https://suryamayaharum-droid.github.io/noivas/estudos-composicao.html"
+    "bridalCompositionStudies": "https://suryamayaharum-droid.github.io/noivas/estudos-composicao.html",
+    "bridalVolume7": "https://suryamayaharum-droid.github.io/noivas/inspiracoes-7.html"
   },
   "creativeCollections": [
     {
       "name": "Projeto Noivas",
       "route": "https://suryamayaharum-droid.github.io/noivas/catalogo-completo.html",
-      "volumes": 6,
-      "artStudies": 192,
-      "processSequences": 28,
+      "volumes": 7,
+      "artStudies": 224,
+      "processSequences": 36,
       "editorialNotice": "Estudos editoriais gerados com assistência de IA; personagens imaginadas e referências amplas, sem reproduzir obras específicas."
     }
   ]

@@ -1,0 +1,81 @@
+{
+  "name": "Edição Especial Noivas — Modigliani, Picasso, Van Gogh",
+  "version": "2026-10-16",
+  "kind": "AI-assisted imagined pictorial studies, not works by the historical artists",
+  "exhibition": "/noivas/edicao-especial/",
+  "studyPage": "/noivas/edicao-especial/estudos.html",
+  "counts": {
+    "individualWorks": 29,
+    "postersOfFour": 7,
+    "soloPosters": 1,
+    "studySheets": 3
+  },
+  "groups": {
+    "modigliani": {
+      "works": [
+        "/assets/noivas/edicao-especial/obras_individuais/modigliani-01.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/modigliani-02.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/modigliani-03.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/modigliani-04.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/modigliani-05.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/modigliani-06.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/modigliani-07.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/modigliani-08.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/modigliani-09.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/modigliani-10.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/modigliani-11.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/modigliani-12.webp"
+      ],
+      "posters": [
+        "/assets/noivas/edicao-especial/cartazes_4_obras/modigliani-cartaz-01.webp",
+        "/assets/noivas/edicao-especial/cartazes_4_obras/modigliani-cartaz-02.webp",
+        "/assets/noivas/edicao-especial/cartazes_4_obras/modigliani-cartaz-03.webp"
+      ],
+      "studies": "/assets/noivas/edicao-especial/cadernos_de_estudos/estudos-modigliani.webp"
+    },
+    "picasso": {
+      "works": [
+        "/assets/noivas/edicao-especial/obras_individuais/picasso-01.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/picasso-02.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/picasso-03.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/picasso-04.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/picasso-05.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/picasso-06.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/picasso-07.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/picasso-08.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/picasso-09.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/picasso-10.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/picasso-11.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/picasso-12.webp"
+      ],
+      "posters": [
+        "/assets/noivas/edicao-especial/cartazes_4_obras/picasso-cartaz-01.webp",
+        "/assets/noivas/edicao-especial/cartazes_4_obras/picasso-cartaz-02.webp",
+        "/assets/noivas/edicao-especial/cartazes_4_obras/picasso-cartaz-03.webp"
+      ],
+      "studies": "/assets/noivas/edicao-especial/cadernos_de_estudos/estudos-picasso.webp"
+    },
+    "van-gogh": {
+      "works": [
+        "/assets/noivas/edicao-especial/obras_individuais/van-gogh-01.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/van-gogh-02.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/van-gogh-03.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/van-gogh-04.webp",
+        "/assets/noivas/edicao-especial/obras_individuais/van-gogh-05.webp"
+      ],
+      "posters": [
+        "/assets/noivas/edicao-especial/cartazes_4_obras/van-gogh-cartaz-01.webp",
+        "/assets/noivas/edicao-especial/cartazes_4_obras/van-gogh-obra-05-solo.webp"
+      ],
+      "studies": "/assets/noivas/edicao-especial/cadernos_de_estudos/estudos-van-gogh.webp"
+    }
+  },
+  "quality": "Public WebP variants for site; full-resolution originals and separated posters preserved in source ZIP archive.",
+  "notes": [
+    "Independent artwork files are canonical; posters are navigation and presentation.",
+    "Never crop or upload only four-up originals; every work must remain individually accessible.",
+    "Studies published on their own page, not interleaved with the finished works.",
+    "Works are generated with AI assistance and should never be credited as authentic paintings by Modigliani, Picasso, or Van Gogh.",
+    "Preserve new routes and assets during generator/deploy sync."
+  ]
+}

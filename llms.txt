@@ -42,3 +42,8 @@ Do not describe Harum Noir studies, proposals or conceptual editorial images as 
 - Instagram Arte Harum: https://www.instagram.com/art.harum/
 - YouTube: https://www.youtube.com/@arteharum
 - Harum Noir public ecosystem: https://suryamayaharum-droid.github.io/astro-blog-starter-template/
+
+## Entrada única do ecossistema
+- https://suryamayaharum-droid.github.io/explorar/ — mapa de coleções e páginas, incluindo Noivas (8 volumes), Harum Noir, Studio 23, biblioteca e Atlas 1001.
+- https://suryamayaharum-droid.github.io/noivas/ — projeto Noivas.
+- https://suryamayaharum-droid.github.io/noivas/catalogo-completo.html — 256 interpretações pictóricas em oito volumes.

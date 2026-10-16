@@ -27,6 +27,7 @@
         else primary.append(link);
       });
     }
+    if(document.querySelector('.harum-ecos-static'))return;
     const holder=document.querySelector('header.top')||document.querySelector('nav.nav');
     if(!holder)return;
     const bar=document.createElement('nav');

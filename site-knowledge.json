@@ -68,7 +68,8 @@
     "bridalVolume7": "https://suryamayaharum-droid.github.io/noivas/inspiracoes-7.html",
     "ecosystem": "https://suryamayaharum-droid.github.io/explorar/",
     "noivas": "https://suryamayaharum-droid.github.io/noivas/",
-    "noivasCatalog": "https://suryamayaharum-droid.github.io/noivas/catalogo-completo.html"
+    "noivasCatalog": "https://suryamayaharum-droid.github.io/noivas/catalogo-completo.html",
+    "noivasVolumeIX": "https://suryamayaharum-droid.github.io/noivas/inspiracoes-9.html"
   },
   "creativeCollections": [
     {
@@ -79,5 +80,13 @@
       "processSequences": 36,
       "editorialNotice": "Estudos editoriais gerados com assistência de IA; personagens imaginadas e referências amplas, sem reproduzir obras específicas."
     }
-  ]
+  ],
+  "collectionCounts": {
+    "noivas": {
+      "volumes": 9,
+      "artworks": 288,
+      "volumeIXMedia": "Original SVG vector artworks",
+      "volumeIXArtworks": 32
+    }
+  }
 }

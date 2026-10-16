@@ -1,0 +1,7 @@
+/* Shared progressive navigation on Arte Harum's self-contained Noivas pages. */
+.harum-ecos-static{position:relative;z-index:35;background:rgba(24,22,19,.97);border-bottom:1px solid rgba(189,163,113,.35);font-family:Arial,Helvetica,sans-serif}
+.harum-ecos-static__inner{max-width:1220px;margin:auto;display:flex;gap:4px;align-items:center;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#a38b62 transparent;padding:0 5vw;white-space:nowrap}
+.harum-ecos-static a{display:inline-block;flex:none;color:#e7d8bd;font-size:12px;text-decoration:none;letter-spacing:.03em;padding:12px 11px;line-height:1.5}
+.harum-ecos-static a:hover,.harum-ecos-static a:focus-visible,.harum-ecos-static a[aria-current="page"]{color:#f0c980;text-decoration:underline;text-underline-offset:5px}
+.harum-ecos-static a.harum-ecos-main{color:#d7b47a;font-weight:bold}
+@media(max-width:620px){.harum-ecos-static a{font-size:11px;padding:11px 9px}}

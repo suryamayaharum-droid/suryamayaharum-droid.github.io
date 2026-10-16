@@ -44,8 +44,11 @@ Do not describe Harum Noir studies, proposals or conceptual editorial images as 
 - Harum Noir public ecosystem: https://suryamayaharum-droid.github.io/astro-blog-starter-template/
 
 ## Entrada única do ecossistema
-- https://suryamayaharum-droid.github.io/explorar/ — mapa de coleções e páginas, incluindo Noivas (8 volumes), Harum Noir, Studio 23, biblioteca e Atlas 1001.
+- https://suryamayaharum-droid.github.io/explorar/ — mapa de coleções e páginas, incluindo Noivas (9 volumes + edição especial), Harum Noir, Studio 23, biblioteca e Atlas 1001.
 - https://suryamayaharum-droid.github.io/noivas/ — projeto Noivas.
-- https://suryamayaharum-droid.github.io/noivas/catalogo-completo.html — 256 interpretações pictóricas em oito volumes.
+- https://suryamayaharum-droid.github.io/noivas/catalogo-completo.html — 288 estudos em nove volumes.
 
 - https://suryamayaharum-droid.github.io/noivas/inspiracoes-9.html — Volume IX (32 obras gráficas vetoriais originais, coleção agora 288 em nove volumes).
+
+- https://suryamayaharum-droid.github.io/noivas/edicao-especial/ — Edição Especial: 29 noivas de IA inspiradas em Modigliani (12), Picasso (12) e Van Gogh (5), separadas em 29 imagens, 7 cartazes de quatro e um solo.
+- https://suryamayaharum-droid.github.io/noivas/edicao-especial/estudos.html — três páginas de estudos especiais de composição.

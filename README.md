@@ -28,3 +28,9 @@ Superfície pública para Studio 23 / Arte Harum. As coleções visuais e págin
 Atualizado em 2026-10-15.
 
 - [Noivas — Volume IX, 32 obras vetoriais](https://suryamayaharum-droid.github.io/noivas/inspiracoes-9.html) — Matéria & Metamorfose; obras 01–32 em /assets/noivas/catalogo-vol9/.
+
+## Edição Especial Noivas · 2026-10-16
+- [Edição Especial: 29 obras individuais](https://suryamayaharum-droid.github.io/noivas/edicao-especial/): 12 Modigliani, 12 Picasso, 5 Van Gogh. Os sete cartazes apresentam quatro obras individualizadas, e a quinta Van Gogh aparece solo.
+- [Três cadernos de estudos separados](https://suryamayaharum-droid.github.io/noivas/edicao-especial/estudos.html).
+- [Manifesto da edição](https://suryamayaharum-droid.github.io/noivas/edicao-especial/manifest.json) com 29 WebP individuais, 7 cartazes com quatro e um cartaz solo. Não apresentar como pinturas autênticas dos artistas citados.
+- Preservar os arquivos da pasta `/assets/noivas/edicao-especial/` e as duas páginas da edição em futuras publicações.

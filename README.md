@@ -6,7 +6,7 @@ Superfície pública para Studio 23 / Arte Harum. As coleções visuais e págin
 - [Home Studio 23](https://suryamayaharum-droid.github.io/)
 - [Explorar tudo — mapa central](https://suryamayaharum-droid.github.io/explorar/)
 - [Noivas — projeto de retratos](https://suryamayaharum-droid.github.io/noivas/)
-- [Noivas — catálogo de oito volumes](https://suryamayaharum-droid.github.io/noivas/catalogo-completo.html)
+- [Noivas — catálogo de nove volumes](https://suryamayaharum-droid.github.io/noivas/catalogo-completo.html)
 - [Noivas — Volume VIII](https://suryamayaharum-droid.github.io/noivas/inspiracoes-8.html)
 - [Noivas — caderno de estudos](https://suryamayaharum-droid.github.io/noivas/estudos-composicao.html)
 - [Harum Noir](https://suryamayaharum-droid.github.io/harum-noir/)
@@ -26,3 +26,5 @@ Superfície pública para Studio 23 / Arte Harum. As coleções visuais e págin
 - As imagens de estudo e personagens imaginadas não equivalem a tatuagens executadas.
 
 Atualizado em 2026-10-15.
+
+- [Noivas — Volume IX, 32 obras vetoriais](https://suryamayaharum-droid.github.io/noivas/inspiracoes-9.html) — Matéria & Metamorfose; obras 01–32 em /assets/noivas/catalogo-vol9/.

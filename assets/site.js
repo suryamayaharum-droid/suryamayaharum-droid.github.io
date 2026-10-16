@@ -482,3 +482,6 @@ if(guide&&guideLauncher){
     }
   });
 }
+
+/* Cross-site ecosystem links; implemented in a separate shared module. */
+(function(){if(document.querySelector('script[data-harum-ecos-loader]'))return;var s=document.createElement('script');s.src='/assets/ecossistema-links.js';s.defer=true;s.dataset.harumEcosLoader='';document.head.append(s)})();

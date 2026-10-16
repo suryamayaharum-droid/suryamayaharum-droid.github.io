@@ -69,7 +69,9 @@
     "ecosystem": "https://suryamayaharum-droid.github.io/explorar/",
     "noivas": "https://suryamayaharum-droid.github.io/noivas/",
     "noivasCatalog": "https://suryamayaharum-droid.github.io/noivas/catalogo-completo.html",
-    "noivasVolumeIX": "https://suryamayaharum-droid.github.io/noivas/inspiracoes-9.html"
+    "noivasVolumeIX": "https://suryamayaharum-droid.github.io/noivas/inspiracoes-9.html",
+    "specialNoivas": "https://suryamayaharum-droid.github.io/noivas/edicao-especial/",
+    "specialNoivasStudies": "https://suryamayaharum-droid.github.io/noivas/edicao-especial/estudos.html"
   },
   "creativeCollections": [
     {
@@ -87,6 +89,18 @@
       "artworks": 288,
       "volumeIXMedia": "Original SVG vector artworks",
       "volumeIXArtworks": 32
+    },
+    "noivasSpecial": {
+      "originalArtworks": 29,
+      "artists": {
+        "Modigliani": 12,
+        "Picasso": 12,
+        "Van Gogh": 5
+      },
+      "postersOfFour": 7,
+      "solo": 1,
+      "studySheets": 3,
+      "media": "AI-assisted editorial paintings, not authentic historical artworks"
     }
   }
 }

@@ -47,3 +47,5 @@ Do not describe Harum Noir studies, proposals or conceptual editorial images as 
 - https://suryamayaharum-droid.github.io/explorar/ — mapa de coleções e páginas, incluindo Noivas (8 volumes), Harum Noir, Studio 23, biblioteca e Atlas 1001.
 - https://suryamayaharum-droid.github.io/noivas/ — projeto Noivas.
 - https://suryamayaharum-droid.github.io/noivas/catalogo-completo.html — 256 interpretações pictóricas em oito volumes.
+
+- https://suryamayaharum-droid.github.io/noivas/inspiracoes-9.html — Volume IX (32 obras gráficas vetoriais originais, coleção agora 288 em nove volumes).

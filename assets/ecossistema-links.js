@@ -18,7 +18,7 @@
     document.head.append(style);
     const primary=document.getElementById('primary-nav');
     if(primary){
-      [['/explorar/','Explorar tudo'],['/noivas/','Noivas']].forEach(function(pair){
+      [['/explorar/','Explorar tudo'],['/galeria-viva/','Galeria Viva'],['/metodo/','Método'],['/noivas/','Noivas']].forEach(function(pair){
         if(primary.querySelector('a[href="'+pair[0]+'"]'))return;
         const link=document.createElement('a');
         link.href=pair[0];link.textContent=pair[1];
@@ -39,6 +39,8 @@
     const links=[
       ['/', 'Início'],
       ['/explorar/', 'Todos os caminhos'],
+      ['/galeria-viva/', 'Galeria Viva'],
+      ['/metodo/', 'Harum Noir Method'],
       ['/noivas/', 'Noivas'],
       ['/harum-noir/modelo-vivo/', 'Modelo vivo'],
       ['https://suryamayaharum-droid.github.io/astro-blog-starter-template/referencias/', 'Atlas 1001']
@@ -50,6 +52,8 @@
       if(item[0]==='/explorar/')a.className='harum-ecos-primary';
       if(item[0]==='/'&&path==='/')a.setAttribute('aria-current','page');
       if(item[0]==='/explorar/'&&path.startsWith('/explorar'))a.setAttribute('aria-current','page');
+      if(item[0]==='/galeria-viva/'&&path.startsWith('/galeria-viva'))a.setAttribute('aria-current','page');
+      if(item[0]==='/metodo/'&&path.startsWith('/metodo'))a.setAttribute('aria-current','page');
       if(item[0]==='/noivas/'&&path.startsWith('/noivas'))a.setAttribute('aria-current','page');
       if(item[0]==='/harum-noir/modelo-vivo/'&&path.startsWith('/harum-noir/modelo-vivo'))a.setAttribute('aria-current','page');
       inner.append(a);

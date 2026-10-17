@@ -34,3 +34,12 @@ Atualizado em 2026-10-15.
 - [Três cadernos de estudos separados](https://suryamayaharum-droid.github.io/noivas/edicao-especial/estudos.html).
 - [Manifesto da edição](https://suryamayaharum-droid.github.io/noivas/edicao-especial/manifest.json) com 29 WebP individuais, 7 cartazes com quatro e um cartaz solo. Não apresentar como pinturas autênticas dos artistas citados.
 - Preservar os arquivos da pasta `/assets/noivas/edicao-especial/` e as duas páginas da edição em futuras publicações.
+
+## HARUM NOIR METHOD × Galeria Viva · 2026-10-17
+- [Método — 33 práticas de desenho](https://suryamayaharum-droid.github.io/metodo/): 6 movimentos, estudo acadêmico, gesto, automatismo, anatomia botânica e presença; busca, filtros, cronômetro e diálogos de exercícios.
+- [Galeria Viva — 171 entradas indexadas](https://suryamayaharum-droid.github.io/galeria-viva/): acervo existente (Figura 100, Biblioteca 27, Noivas 31, Studio 23 4, Atlas 9), sem duplicação de arquivos. Carregamento em blocos de 15, filtros, leitor ampliado com teclado e toque.
+- Programa Regular pré-existente da Escola Astro: `/astro-blog-starter-template/escola/programa-regular/`. As 33 práticas novas complementam as 33 aulas anteriores; não substituir nem apagar.
+- Código sem dependências externas de UI: `assets/museu-noir.css`, `assets/harum-method.js`, `assets/galeria-viva.js`. Uso de recursos nativos do navegador reduz custo e falhas no GitHub Pages.
+- Museu de domínio público: referências carregadas por consulta ao Art Institute of Chicago API, filtradas por `is_public_domain === true` e `image_id`. Crédito e link à obra original; não assumir domínio público de artistas contemporâneos.
+- **PRESERVAÇÃO:** antes de qualquer sincronização do gerador privado para este repositório, manter `metodo/`, `galeria-viva/`, os três assets acima, links na `index.html`, `explorar/index.html`, `assets/ecossistema-links.js` e URLs no `sitemap.xml`. A migração não deve executar exclusão desses caminhos.
+- Publicação GitHub: a gravação em `main` foi concluída. Propagação de GitHub Pages deve ser checada separadamente; não equivale a teste visual de navegadores.

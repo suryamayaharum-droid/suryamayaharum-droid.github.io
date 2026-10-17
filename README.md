@@ -27,13 +27,14 @@ Superfície pública para Studio 23 / Arte Harum. As coleções visuais e págin
 
 Atualizado em 2026-10-15.
 
-## Lume: IA opcional no navegador
+## Lume: guia local sem download de modelo
 
-A janela da Lume permite ativar um modelo local, com download explícito de cerca
-de 500 MB, cancelamento e fallback para o mapa do site. Perguntas são processadas
-no aparelho; o modelo não publica nem altera conteúdo. Ver [documentação e testes](docs/lume-native.md).
-Preservar `assets/lume-native.mjs`, `assets/lume-ai.worker.mjs`,
-`assets/lume-native.css` e a integração em `assets/site.js` nas sincronizações.
+A Lume usa MiniSearch 7.2.0 local, contexto de navegação e descoberta progressiva
+do sitemap. Funciona sem instalar aplicativo, baixar modelo ou manter backend
+de IA. Um modelo do navegador só é consultado se já estiver disponível e for
+compatível com português. Ver [arquitetura, limites e testes](docs/lume-native.md).
+Preservar `assets/lume-*.mjs`, `assets/lume-native.css`, `assets/vendor/`, as
+integrações em `assets/site.js` e `assets/ecossistema-links.js` nas sincronizações.
 
 - [Noivas — Volume IX, 32 obras vetoriais](https://suryamayaharum-droid.github.io/noivas/inspiracoes-9.html) — Matéria & Metamorfose; obras 01–32 em /assets/noivas/catalogo-vol9/.
 

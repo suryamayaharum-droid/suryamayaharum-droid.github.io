@@ -27,12 +27,14 @@ Superfície pública para Studio 23 / Arte Harum. As coleções visuais e págin
 
 Atualizado em 2026-10-15.
 
-## Lume: guia local sem download de modelo
+## Lume: guia local e IA quantizada opcional
 
-A Lume usa MiniSearch 7.2.0 local, contexto de navegação e descoberta progressiva
-do sitemap. Funciona sem instalar aplicativo, baixar modelo ou manter backend
-de IA. Um modelo do navegador só é consultado se já estiver disponível e for
-compatível com português. Ver [arquitetura, limites e testes](docs/lume-native.md).
+A Lume mantém MiniSearch 7.2.0, contexto de navegação e descoberta progressiva
+do sitemap sem baixar modelo. O modo opcional **Qwen3 0.6B quantizado** gera
+respostas no aparelho e pode pesquisar na Wikipedia, no Wikidata e no Art Institute of
+Chicago, exibindo fontes. Exige ativação explícita e download inicial de
+aproximadamente 650 MB. Não exige backend próprio de IA nem chave de API.
+Ver [guia básico](docs/lume-native.md) e [IA quantizada, pesquisa e validação](docs/lume-quantized.md).
 Preservar `assets/lume-*.mjs`, `assets/lume-native.css`, `assets/vendor/`, as
 integrações em `assets/site.js` e `assets/ecossistema-links.js` nas sincronizações.
 

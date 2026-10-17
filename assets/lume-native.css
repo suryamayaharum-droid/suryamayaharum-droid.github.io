@@ -1,0 +1,7 @@
+.lume-native{margin:14px 0;padding:14px;border:1px solid #88786555;border-radius:12px;background:#ab80500a}
+.lume-native button{min-height:44px;padding:9px 15px;border:1px solid #a48e6a;border-radius:6px;background:transparent;color:inherit;font:inherit;cursor:pointer}
+.lume-native button:hover{background:#ab805022}
+.lume-native button:focus-visible{outline:2px solid #c9a879;outline-offset:3px}
+.lume-native p{font-size:.8rem;line-height:1.55;margin:8px 0 0;overflow-wrap:anywhere}
+.lume-native [role=status]{font-weight:600}
+.host-form button:disabled{opacity:.6;cursor:wait}

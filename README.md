@@ -27,6 +27,14 @@ Superfície pública para Studio 23 / Arte Harum. As coleções visuais e págin
 
 Atualizado em 2026-10-15.
 
+## Lume: IA opcional no navegador
+
+A janela da Lume permite ativar um modelo local, com download explícito de cerca
+de 500 MB, cancelamento e fallback para o mapa do site. Perguntas são processadas
+no aparelho; o modelo não publica nem altera conteúdo. Ver [documentação e testes](docs/lume-native.md).
+Preservar `assets/lume-native.mjs`, `assets/lume-ai.worker.mjs`,
+`assets/lume-native.css` e a integração em `assets/site.js` nas sincronizações.
+
 - [Noivas — Volume IX, 32 obras vetoriais](https://suryamayaharum-droid.github.io/noivas/inspiracoes-9.html) — Matéria & Metamorfose; obras 01–32 em /assets/noivas/catalogo-vol9/.
 
 ## Edição Especial Noivas · 2026-10-16

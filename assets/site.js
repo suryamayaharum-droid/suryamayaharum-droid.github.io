@@ -295,7 +295,7 @@ if(guide&&guideLauncher){
   const guideMessages=guide.querySelector('[data-guide-messages]');
   const guideMode=guide.querySelector('[data-guide-mode]');
   const guideEndpoint=guide.dataset.guideEndpoint||'';
-  const guideRoutes=new Set(['/','/sobre/','/servicos/','/portfolio/','/harum-noir/','/harum-noir/modelo-vivo/','/harum-noir/modelo-vivo/diario/','/harum-noir/modelo-vivo/recentes/','/biblioteca/','/agendar/','/cuidados/','/localizacao/','/contato/','/faq/','/privacidade/']);
+  const guideRoutes=new Set(['/','/sobre/','/servicos/','/portfolio/','/harum-noir/','/harum-noir/modelo-vivo/','/harum-noir/modelo-vivo/diario/','/harum-noir/modelo-vivo/recentes/','/biblioteca/','/agendar/','/cuidados/','/localizacao/','/contato/','/faq/','/privacidade/','/metodo/','/galeria-viva/']);
   const guideCategoryRoutes=new Set([
     '/biblioteca/?categoria=selecao','/biblioteca/?categoria=figura','/biblioteca/?categoria=maos',
     '/biblioteca/?categoria=olhos','/biblioteca/?categoria=rosto','/biblioteca/?categoria=expressoes',
@@ -306,6 +306,8 @@ if(guide&&guideLauncher){
   const guideExternalRoutes=new Set(['https://suryamayaharum-droid.github.io/astro-blog-starter-template/referencias/']);
   const currentPage=guideRoutes.has(location.pathname)?location.pathname:'/';
   const pageInfo={
+    '/metodo/':{text:'O Harum Noir Method reúne 33 práticas de desenho, com busca, filtros e cronômetro.',actions:[['/metodo/','Explorar práticas'],['/galeria-viva/','Abrir Galeria Viva']]},
+    '/galeria-viva/':{text:'A Galeria Viva conecta os acervos do ecossistema, com filtros e leitor ampliado.',actions:[['/galeria-viva/','Explorar galeria'],['/metodo/','Praticar desenho']]},
     '/':{text:'Esta é a entrada do Studio 23 e Arte Harum, com acesso ao portfólio, ao universo Harum Noir e aos estudos recentes de poses.',actions:[['/harum-noir/modelo-vivo/recentes/','Estudos recentes de poses'],['/harum-noir/','Conhecer Harum Noir']]},
     '/sobre/':{text:'Esta página apresenta o ateliê e a relação entre desenho, pintura e tatuagem.',actions:[['/portfolio/','Explorar portfólio'],['/agendar/','Começar um projeto']]},
     '/servicos/':{text:'Aqui você encontra o contexto dos serviços e pode seguir para o início de um projeto.',actions:[['/agendar/','Abrir agendamento'],['/portfolio/','Ver portfólio']]},
@@ -324,8 +326,17 @@ if(guide&&guideLauncher){
   };
   if(guideMode)guideMode.textContent=guideEndpoint
     ?'Mapa e busca públicos são locais; IA responde apenas dúvidas abertas com navegação limitada.'
-    :'Mapa, busca e navegação contextual funcionam localmente; a IA ainda não foi habilitada.';
+    :'Mapa, busca e orientação disponíveis neste site. Você pode ativar a IA neste aparelho.';
+  let nativeGuide=null;
+  let nativeInstallation=null;
+  const installNative=()=>{
+    if(guideEndpoint||nativeInstallation)return;
+    nativeInstallation=import('/assets/lume-native.mjs')
+      .then(({installNativeGuide})=>{nativeGuide=installNativeGuide(guide,guideMode)})
+      .catch(()=>{nativeInstallation=null;if(guideMode)guideMode.textContent='A navegação local está disponível. Reabra a Lume para tentar carregar a opção de IA.'});
+  };
   const openGuide=()=>{
+    installNative();
     if(typeof guide.show==='function')guide.show();
     else guide.setAttribute('open','');
     guideInput?.focus();
@@ -347,6 +358,8 @@ if(guide&&guideLauncher){
     ['/agendar/','Agendar'],['/contato/','Contato']
   ];
   const searchIndex=[
+    {keywords:['metodo','praticas','exercicios','aprender desenho','laboratorios'],action:['/metodo/','Explorar práticas de desenho']},
+    {keywords:['galeria viva','acervos conectados'],action:['/galeria-viva/','Abrir Galeria Viva']},
     {keywords:['portfolio','tatuagem','tatuagens','trabalhos realizados','galeria'],action:['/portfolio/','Explorar portfólio']},
     {keywords:['harum noir','carvao','desenho autoral','processo autoral'],action:['/harum-noir/','Conhecer Harum Noir']},
     {keywords:['estudos recentes','estudo recente','estudos de pose','poses recentes','galeria de poses','poses','modelo vivo','modelo viva'],action:['/harum-noir/modelo-vivo/recentes/','Abrir estudos recentes de poses']},
@@ -398,6 +411,8 @@ if(guide&&guideLauncher){
   const defaultActions=()=>makeActions(pageInfo[currentPage]?.actions||[['/contato/','Falar com a equipe'],['/agendar/','Abrir agendamento']]);
   const localAnswer=value=>{
     const q=normalize(value);
+    if(/metodo|praticas|exercicios|aprender.*desenh|laboratorio/.test(q))return {text:'O Harum Noir Method reúne 33 práticas de desenho, com busca, filtros e cronômetro para estudar no seu ritmo.',actions:makeActions([['/metodo/','Explorar práticas de desenho'],['/galeria-viva/','Abrir Galeria Viva']])};
+    if(/galeria viva|acervos conectados/.test(q))return {text:'A Galeria Viva conecta os acervos do ecossistema, com filtros e leitor ampliado para explorar as obras.',actions:makeActions([['/galeria-viva/','Explorar Galeria Viva'],['/metodo/','Praticar desenho']])};
     if(/esta pagina|onde estou|o que (tem|vejo) aqui|explica.*pagina/.test(q)){
       const info=pageInfo[currentPage]||pageInfo['/'];
       return {text:info.text,actions:makeActions(info.actions)};
@@ -444,15 +459,28 @@ if(guide&&guideLauncher){
   };
   guideForm?.addEventListener('submit',async event=>{
     event.preventDefault();
+    const submit=guideForm.querySelector('button[type="submit"]');
+    if(submit?.disabled)return;
     const question=guideInput?.value.trim().slice(0,500)||'';
     if(!question)return;
     guideInput.value='';
     if(!guideEndpoint){
       const answer=localAnswer(question);
-      addMessage(answer.text,answer.actions);
+      if(nativeGuide?.ready){
+        if(submit)submit.disabled=true;
+        const previousMode=guideMode?.textContent;
+        if(guideMode)guideMode.textContent='Lume está preparando a resposta…';
+        try{
+          const text=await nativeGuide.ask(question,answer.text,document.documentElement.lang||'pt-BR');
+          addMessage(text||answer.text,answer.actions);
+        }finally{
+          if(submit)submit.disabled=false;
+          if(guideMode&&nativeGuide.ready)guideMode.textContent=previousMode;
+          guideInput?.focus();
+        }
+      }else addMessage(answer.text,answer.actions);
       return;
     }
-    const submit=guideForm.querySelector('button[type="submit"]');
     if(submit)submit.disabled=true;
     addMessage('Estou consultando as informações públicas do site…');
     try{

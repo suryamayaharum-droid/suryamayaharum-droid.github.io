@@ -1,6 +1,8 @@
 import { LocalGuide } from './lume-engine.mjs';
 import { PAGES } from './lume-knowledge.mjs';
 import { PublicIndex } from './lume-public-index.mjs';
+import { QuantizedModel, LumeAgent } from './lume-quantized.mjs';
+import { MODEL } from './lume-model-config.mjs';
 
 // Use an already available browser model only. Never install a model or polyfill.
 export class BrowserIntelligence {
@@ -88,6 +90,38 @@ export function mountNativeGuide() {
   const engine = new LocalGuide({ page: location.pathname, storage });
   const intelligence = new BrowserIntelligence();
   const index = new PublicIndex({ origin: location.origin });
+  const history = [];
+  let activeAgent = null;
+  const panel = document.createElement('details');
+  panel.className = 'lume-ai-panel';
+  const summary = document.createElement('summary');
+  summary.textContent = 'Conversar com IA e pesquisar online';
+  const modelButton = document.createElement('button');
+  modelButton.type = 'button';
+  modelButton.dataset.lumeModel = '';
+  const modelState = document.createElement('p');
+  modelState.setAttribute('role', 'status');
+  modelState.dataset.lumeModelStatus = '';
+  const modelNote = document.createElement('p');
+  modelNote.textContent = MODEL.label + ': download inicial de aproximadamente 650 MB com os arquivos de execução. A ativação acompanha esta aba ao trocar de página. O modelo pode ficar no cache e roda conforme a memória e o desempenho do aparelho. Respostas de IA podem conter erros.';
+  const onlineLabel = document.createElement('label');
+  const online = document.createElement('input');
+  online.type = 'checkbox';
+  online.dataset.lumeOnline = '';
+  try { online.checked = storage?.getItem('harum.lume.ai.online') === 'true'; } catch {}
+  online.addEventListener('change', () => { try { storage?.setItem('harum.lume.ai.online', String(online.checked)); } catch {} });
+  onlineLabel.append(online, document.createTextNode(' Permitir pesquisa na internet'));
+  const onlineNote = document.createElement('p');
+  onlineNote.textContent = 'Ao permitir, termos podem ser enviados à Wikipedia, Wikidata e ao Art Institute of Chicago. Os links das fontes aparecem com a resposta. Não há envio para um servidor de IA.';
+  panel.append(summary, modelNote, modelButton, modelState, onlineLabel, onlineNote);
+  const model = new QuantizedModel({ onState: ({ state, backend, progress, file }) => {
+    modelButton.textContent = state === 'ready' ? 'Desativar IA quantizada' : state === 'loading' ? 'Cancelar download' : 'Instalar e ativar IA quantizada';
+    modelButton.setAttribute('aria-pressed', String(state === 'loading' || state === 'ready'));
+    modelState.textContent = state === 'ready' ? MODEL.label + ' pronto · ' + (backend || 'modelo local') : state === 'loading' ? (Number.isFinite(progress) ? 'Baixando ' + String(file || 'arquivo').slice(0, 70) + ': ' + Math.round(progress) + '%' : 'Preparando o modelo. Você pode continuar usando a navegação local.') : state === 'error' ? 'O modelo não pôde ser executado neste aparelho. A navegação local continua disponível; você pode tentar novamente.' : 'IA quantizada desativada. A navegação local está pronta.';
+    if (state === 'error') { try { storage?.removeItem('harum.lume.ai.enabled'); } catch {} }
+  } });
+  model.change('idle');
+  const agent = new LumeAgent({ model });
   const controls = document.createElement('div');
   controls.className = 'lume-controls';
   const clear = document.createElement('button');
@@ -99,13 +133,13 @@ export function mountNativeGuide() {
   cancel.hidden = true;
   const notice = document.createElement('p');
   notice.className = 'lume-notice';
-  notice.textContent = 'Sem instalar aplicativo ou baixar modelo de IA. Suas perguntas ficam neste aparelho; guardo apenas os temas de navegação nesta aba.';
+  notice.textContent = 'A navegação local funciona sem baixar modelo. Para gerar respostas com IA, ative o modelo opcional abaixo. A pesquisa online é habilitada separadamente.';
   controls.append(clear, cancel);
-  form.after(controls, notice);
-  const status = () => { if (mode) mode.textContent = 'Lume pronta · ' + engine.pages.size + ' caminhos do site'; };
+  form.after(controls, notice, panel);
+  const status = () => { if (mode) mode.textContent = (model.ready ? MODEL.label + ' ativo' : 'Lume pronta') + ' · ' + engine.pages.size + ' caminhos do site'; };
   status();
   let generation = 0;
-  const add = (text, actions = [], visitor = false) => {
+  const add = (text, actions = [], visitor = false, sources = []) => {
     const item = document.createElement('div');
     item.className = visitor ? 'host-question' : 'host-answer';
     const p = document.createElement('p');
@@ -119,6 +153,16 @@ export function mountNativeGuide() {
       a.textContent = action.label;
       item.append(a);
     }
+    for (const [index, source] of sources.slice(0, 3).entries()) {
+      let url;
+      try { url = new URL(source.url); } catch { continue; }
+      if (url.protocol !== 'https:' || !['pt.wikipedia.org', 'www.wikidata.org', 'www.artic.edu'].includes(url.hostname) || url.username || url.password || url.port) continue;
+      const a = document.createElement('a');
+      a.href = url.href;
+      a.textContent = '[' + (index + 1) + '] ' + source.title;
+      a.target = '_blank'; a.rel = 'noopener noreferrer';
+      item.append(a);
+    }
     messages.append(item);
     // Bound DOM growth during long visits.
     while (messages.children.length > 40) messages.firstElementChild.remove();
@@ -129,7 +173,18 @@ export function mountNativeGuide() {
     cancel.hidden = true;
     status();
   };
-  const stop = () => { generation++; intelligence.stop(); index.cancel(); unlock(); };
+  const stop = () => { generation++; activeAgent?.abort(); activeAgent = null; if (model.pending.size) model.stop(); intelligence.stop(); index.cancel(); unlock(); };
+  modelButton.addEventListener('click', () => {
+    if (model.worker) {
+      stop(); model.stop();
+      online.checked = false;
+      try { storage?.removeItem('harum.lume.ai.enabled'); storage?.removeItem('harum.lume.ai.online'); } catch {}
+    } else {
+      try { storage?.setItem('harum.lume.ai.enabled', 'true'); } catch {}
+      model.start();
+    }
+    status();
+  });
   const open = () => {
     if (!guide.open) {
       if (guide.showModal) guide.showModal(); else guide.setAttribute('open', '');
@@ -149,7 +204,7 @@ export function mountNativeGuide() {
   guide.addEventListener('click', event => { if (event.target === guide) close(); });
   guide.addEventListener('cancel', event => { event.preventDefault(); close(); });
   cancel.addEventListener('click', () => { stop(); add('Consulta cancelada. A navegação local continua disponível.'); });
-  clear.addEventListener('click', () => { stop(); engine.clear(); messages.replaceChildren(); add('Contexto desta aba apagado. Podemos começar de novo.'); });
+  clear.addEventListener('click', () => { stop(); engine.clear(); history.length = 0; messages.replaceChildren(); add('Contexto desta aba apagado. Podemos começar de novo.'); });
   form.addEventListener('submit', async event => {
     event.preventDefault();
     const submit = form.querySelector('button[type="submit"]');
@@ -159,6 +214,23 @@ export function mountNativeGuide() {
     add(question, [], true);
     const version = ++generation;
     let answer = engine.answer(question);
+    if (answer.kind === 'clear') history.length = 0;
+    if (model.ready && answer.kind !== 'clear') {
+      submit.disabled = true;
+      cancel.hidden = false;
+      const controller = activeAgent = new AbortController();
+      try {
+        const result = await agent.answer(question, { online: online.checked, siteContext: answer.kind === 'unknown' ? 'Arte Harum: traço, corpo e presença. Não há informação específica para esta pergunta no catálogo local.' : answer.text, history, signal: controller.signal, onStage: text => { if (version === generation && mode) mode.textContent = text; } });
+        if (version !== generation) return;
+        add(result.text || answer.text, answer.actions, false, result.sources);
+        if (result.searched && !result.sources.length) add('Não consegui recuperar fontes online para esta consulta. Confira a informação antes de utilizá-la.');
+        history.push({ role: 'user', content: question }, { role: 'assistant', content: result.text || answer.text });
+        if (history.length > 4) history.splice(0, history.length - 4);
+      } catch { if (version === generation) add(answer.text, answer.actions); }
+      finally { if (activeAgent === controller) activeAgent = null; if (version === generation) unlock(); }
+      input.focus();
+      return;
+    }
     // Known questions return synchronously. Only unknown requests need progressive discovery.
     if (['unknown', 'discovered', 'partial'].includes(answer.kind)) {
       submit.disabled = true;
@@ -182,6 +254,7 @@ export function mountNativeGuide() {
     status();
     input.focus();
   });
-  window.addEventListener('pagehide', stop);
-  return { engine, index, intelligence, stop };
+  window.addEventListener('pagehide', () => { stop(); model.stop(); });
+  try { if (storage?.getItem('harum.lume.ai.enabled') === 'true') { panel.open = true; model.start(); } } catch {}
+  return { engine, index, intelligence, model, agent, stop };
 }

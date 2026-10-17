@@ -30,7 +30,7 @@ export const PAGES = Object.freeze([
   page('contact', 'Contato', '/contato/', 'A página de Contato reúne os canais oficiais do ecossistema. Confirme valores finais, disponibilidade e orientações pessoais com a equipe.', ['contato', 'whatsapp', 'instagram', 'youtube', 'equipe'], ['booking', 'portfolio']),
   page('about', 'Sobre o ateliê', '/sobre/', 'O ateliê aproxima desenho, pintura e tatuagem em uma pesquisa autoral.', ['sobre', 'historia do atelie', 'quem somos'], ['portfolio', 'noir']),
   page('faq', 'Perguntas frequentes', '/faq/', 'O FAQ reúne respostas sobre projeto, atendimento, localização e próximos passos.', ['faq', 'duvidas', 'perguntas frequentes'], ['contact', 'booking']),
-  page('privacy', 'Privacidade', '/privacidade/', 'Leia a política de privacidade e as informações sobre serviços externos. A Lume desta página processa a busca localmente; apenas temas de navegação ficam nesta sessão da aba.', ['privacidade', 'dados', 'lgpd'], ['contact'])
+  page('privacy', 'Privacidade', '/privacidade/', 'A busca básica da Lume é local. A IA quantizada é opcional; se você permitir pesquisa online, termos de consulta são enviados às fontes informadas. O contexto de navegação fica nesta aba e pode ser apagado.', ['privacidade', 'dados', 'lgpd'], ['contact'])
 ]);
 
 export const PRACTICES = Object.freeze([

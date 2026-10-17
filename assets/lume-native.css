@@ -25,5 +25,11 @@
 #harum-guide-dialog .lume-controls button{min-height:44px;padding:6px 8px;border:0;background:transparent;color:#d0c3a9;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
 #harum-guide-dialog .lume-controls [hidden]{display:none}
 #harum-guide-dialog .lume-notice,#harum-guide-dialog .host-disclaimer{font-size:11px;color:#bdb9ae;line-height:1.6}
+#harum-guide-dialog .lume-ai-panel{margin-top:14px;padding:12px;border:1px solid #a08b6655;border-radius:10px;background:#101211}
+#harum-guide-dialog .lume-ai-panel summary{min-height:32px;color:#e5c991;cursor:pointer}
+#harum-guide-dialog .lume-ai-panel p{font-size:11px;line-height:1.6;color:#c1bcb0}
+#harum-guide-dialog .lume-ai-panel button{min-height:44px;padding:9px 12px;border:1px solid #b6a178;border-radius:7px;background:#b6a178;color:#101211;cursor:pointer;font:600 12px Arial,sans-serif}
+#harum-guide-dialog .lume-ai-panel label{display:flex;align-items:center;gap:8px;min-height:44px;font-size:12px;color:#e4d8c0}
+#harum-guide-dialog .lume-ai-panel input{width:18px;height:18px;flex:none;accent-color:#c4ad80}
 #harum-guide-dialog :focus-visible,[data-guide-open]:focus-visible{outline:2px solid #e5c991;outline-offset:3px}
 @media(max-width:480px){#harum-guide-dialog[data-lume-serverless]{margin:8px;width:calc(100vw - 16px);max-width:calc(100vw - 16px);max-height:calc(100svh - 16px)}#harum-guide-dialog .host-dialog-body{padding:14px 16px}[data-guide-open].host-launcher{right:12px;bottom:12px}}

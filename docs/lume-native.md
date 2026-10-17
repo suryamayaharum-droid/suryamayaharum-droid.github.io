@@ -1,4 +1,8 @@
-# Lume integrada ao site, sem download de modelo
+# Lume integrada ao site: modo básico
+
+Esta página descreve o modo básico, que continua funcionando sem pesos de IA.
+O novo modo de geração com **Qwen3 0.6B quantizado** e pesquisa online é opcional,
+tem download inicial e está documentado em [lume-quantized.md](lume-quantized.md).
 
 A Lume funciona como assistente local de navegação e consulta ao conteúdo
 público. A base revisada, a biblioteca e o código são arquivos estáticos

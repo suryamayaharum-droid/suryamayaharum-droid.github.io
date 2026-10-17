@@ -61,6 +61,10 @@
     bar.append(inner);
     holder.insertAdjacentElement('afterend',bar);
   }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initializeEcosystemNavigation,{once:true});
-  else initializeEcosystemNavigation();
+  function initialize(){
+    initializeEcosystemNavigation();
+    import('/assets/lume-native.mjs').then(({mountNativeGuide})=>mountNativeGuide()).catch(()=>{});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initialize,{once:true});
+  else initialize();
 })();

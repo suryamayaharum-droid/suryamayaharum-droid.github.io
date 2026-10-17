@@ -1,0 +1,41 @@
+// Public, reviewed site facts. No model weights or external dependencies.
+const page = (id, title, href, text, keywords, next = []) => Object.freeze({ id, title, href, text, keywords, next });
+export const PAGES = Object.freeze([
+  page('home', 'Início', '/', 'Studio 23 e Arte Harum conectam tatuagem, desenho e pesquisa autoral em Salvador.', ['inicio', 'home', 'atelie', 'studio 23'], ['explore']),
+  page('explore', 'Todos os caminhos', '/explorar/', 'O mapa central conecta as páginas e coleções do ecossistema Arte Harum.', ['mapa', 'site', 'paginas', 'navegacao', 'explorar'], ['gallery', 'method']),
+  page('method', 'Harum Noir Method', '/metodo/', 'O Harum Noir Method reúne 33 práticas de desenho: olhar, estrutura, gesto, acaso, metamorfose e presença. A página tem busca, filtros e cronômetro.', ['metodo', 'aprender desenho', 'praticas', 'exercicios', 'laboratorios', 'desenho academico', 'automatismo', 'desenho automatico', 'botanica', 'carvao'], ['gallery', 'school']),
+  page('gallery', 'Galeria Viva', '/galeria-viva/', 'A Galeria Viva conecta os acervos existentes, com filtros e leitor ampliado para explorar as obras e continuar a visita nas coleções.', ['galeria viva', 'museu', 'exposicao', 'obras', 'acervos conectados'], ['method', 'library']),
+  page('school', 'Escola Harum Noir', '/astro-blog-starter-template/', 'A Escola Harum Noir reúne percursos e materiais de estudo. O Método complementa essa experiência com práticas de desenho.', ['escola', 'curso', 'aulas', 'estudar desenho'], ['method', 'atlas']),
+  page('atlas', 'Atlas de referências', '/astro-blog-starter-template/referencias/', 'O Atlas reúne artistas e repertórios visuais com acesso às fontes originais para estudo.', ['atlas', 'artistas', 'referencias', 'inspiracao', 'historia da arte'], ['method', 'library']),
+  page('noir', 'Harum Noir', '/harum-noir/', 'Harum Noir é o universo editorial de desenho, carvão, observação, anatomia e processo autoral.', ['harum noir', 'carvao', 'processo autoral', 'grafite'], ['figure', 'library']),
+  page('figure', 'Modelo vivo', '/harum-noir/modelo-vivo/', 'O caderno de modelo vivo reúne poses e caminhos para estudos de gesto, apoio e anatomia.', ['modelo vivo', 'modelo viva', 'poses', 'corpo', 'figura'], ['recent', 'diary']),
+  page('recent', 'Estudos recentes de poses', '/harum-noir/modelo-vivo/recentes/', 'A coleção reúne estudos de pose, colagens e referências fotográficas. Estudos e propostas não são apresentados como tatuagens executadas.', ['recentes', 'novidades', 'poses recentes', 'estudos recentes'], ['figure', 'library']),
+  page('diary', 'Diário de modelo vivo', '/harum-noir/modelo-vivo/diario/', 'O diário conecta cadernos de anatomia, balé, emoção e carvão.', ['diario', 'bale', 'anatomia', 'emocao'], ['figure', 'method']),
+  page('library', 'Biblioteca', '/biblioteca/', 'A Biblioteca reúne estudos e imagens organizados por tema. Você pode buscar mãos, olhos, rosto, figura e outras categorias.', ['biblioteca', 'acervo', 'desenhos', 'estudos'], ['gallery', 'method']),
+  page('hands', 'Mãos e gesto', '/biblioteca/?categoria=maos', 'A categoria Mãos e gesto reúne estudos para observar articulações, intenção e movimento.', ['maos', 'mao', 'dedos', 'gesto das maos'], ['method', 'figure']),
+  page('eyes', 'Olhos e anatomia', '/biblioteca/?categoria=olhos', 'A categoria Olhos e anatomia reúne referências para estudar o olhar.', ['olhos', 'olho', 'olhar'], ['library', 'method']),
+  page('face', 'Rosto e expressão', '/biblioteca/?categoria=rosto', 'A categoria Rosto e expressão é uma das portas temáticas da Biblioteca.', ['rosto', 'face', 'expressao facial'], ['library', 'method']),
+  page('expressions', 'Expressões sombrias', '/biblioteca/?categoria=expressoes', 'A Biblioteca possui uma categoria dedicada a expressões sombrias.', ['expressoes', 'sombrio', 'sombrias', 'terror gotico'], ['face', 'library']),
+  page('mouth', 'Boca, lábios e língua', '/biblioteca/?categoria=boca', 'A Biblioteca organiza estudos de boca, lábios e língua em uma categoria própria.', ['boca', 'labios', 'lingua'], ['face', 'library']),
+  page('nose', 'Anatomia do nariz', '/biblioteca/?categoria=nariz', 'A Biblioteca possui uma categoria para estudos de anatomia do nariz.', ['nariz'], ['face', 'library']),
+  page('birds', 'Pássaros autorais', '/biblioteca/?categoria=passaros', 'Pássaros autorais é uma categoria de estudos da Biblioteca.', ['passaros', 'aves', 'passaro'], ['library', 'method']),
+  page('noivas', 'Projeto Noivas', '/noivas/', 'O Projeto Noivas reúne retratos e estudos editoriais. São criações e referências de estudo, não pinturas históricas autênticas dos artistas citados.', ['noivas', 'noiva', 'retratos', 'casamento'], ['noivas-catalog', 'noivas-studies']),
+  page('noivas-catalog', 'Catálogo de Noivas', '/noivas/catalogo-completo.html', 'O catálogo completo conecta os volumes do Projeto Noivas.', ['catalogo', 'volumes', 'colecao noivas'], ['noivas-studies', 'gallery']),
+  page('noivas-studies', 'Estudos de composição', '/noivas/estudos-composicao.html', 'Os estudos de composição mostram caminhos do processo editorial do Projeto Noivas.', ['esbocos', 'composicao', 'estudos noivas'], ['noivas-catalog', 'method']),
+  page('portfolio', 'Portfólio', '/portfolio/', 'Explore tatuagens, projetos e estudos. Trabalhos realizados aparecem separados de estudos e propostas artísticas.', ['portfolio', 'tatuagens', 'tatuagem', 'trabalhos realizados'], ['booking', 'noir']),
+  page('booking', 'Agendar', '/agendar/', 'Para iniciar um projeto, acesse Agendar e conte sua ideia. A equipe confirma disponibilidade e local conforme a agenda.', ['agendar', 'agendamento', 'marcar', 'sessao', 'horario', 'vaga'], ['portfolio', 'contact']),
+  page('services', 'Serviços e orçamento', '/servicos/', 'Os valores variam conforme tamanho e detalhes do projeto. Veja os serviços e fale com a equipe para receber uma orientação.', ['preco', 'valor', 'custa', 'custo', 'orcamento', 'servicos'], ['contact', 'booking']),
+  page('location', 'Localização', '/localizacao/', 'O ateliê privado fica em Paripe. Também há atendimento em outro estúdio na Pituba, conforme agenda. O endereço de Paripe é enviado após o agendamento.', ['localizacao', 'endereco', 'paripe', 'pituba', 'salvador'], ['booking', 'contact']),
+  page('care', 'Cuidados', '/cuidados/', 'As orientações gerais estão na página de Cuidados. Para uma reação ou dúvida específica, fale com a equipe de tatuagem.', ['cuidados', 'cicatrizacao', 'cicatriza', 'aftercare', 'pos tatuagem'], ['contact', 'faq']),
+  page('contact', 'Contato', '/contato/', 'A página de Contato reúne os canais oficiais do ecossistema. Confirme valores finais, disponibilidade e orientações pessoais com a equipe.', ['contato', 'whatsapp', 'instagram', 'youtube', 'equipe'], ['booking', 'portfolio']),
+  page('about', 'Sobre o ateliê', '/sobre/', 'O ateliê aproxima desenho, pintura e tatuagem em uma pesquisa autoral.', ['sobre', 'historia do atelie', 'quem somos'], ['portfolio', 'noir']),
+  page('faq', 'Perguntas frequentes', '/faq/', 'O FAQ reúne respostas sobre projeto, atendimento, localização e próximos passos.', ['faq', 'duvidas', 'perguntas frequentes'], ['contact', 'booking']),
+  page('privacy', 'Privacidade', '/privacidade/', 'Leia a política de privacidade e as informações sobre serviços externos. A Lume desta página processa a busca localmente; apenas temas de navegação ficam nesta sessão da aba.', ['privacidade', 'dados', 'lgpd'], ['contact'])
+]);
+
+export const PRACTICES = Object.freeze([
+  { title: 'Contorno cego · 5 minutos', text: 'Sem olhar o papel, percorra com os olhos a borda de uma mão e registre cada mudança de direção. Procure continuidade e atenção, não semelhança.' },
+  { title: 'Linha de ação · 6 minutos', text: 'Faça oito gestos de 30 segundos, priorizando direção e tensão. Procure um movimento legível mesmo sem contorno.' },
+  { title: 'Rabisco automático · 8 minutos', text: 'Rabisque por 90 segundos sem assunto definido; circule as formas encontradas depois. Preserve as marcas iniciais.' },
+  { title: 'Anatomia botânica · 25 minutos', text: 'Faça clavícula, escápula ou mão dialogar com uma rosa, lírio ou peônia por continuidade de direção. Busque integração estrutural, não colagem.' }
+]);

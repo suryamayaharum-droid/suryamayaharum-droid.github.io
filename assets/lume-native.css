@@ -1,0 +1,29 @@
+/* Shared standalone shell, scoped to Lume; no UI framework. */
+[data-guide-open].host-launcher{position:fixed;right:20px;bottom:20px;z-index:1000;display:flex;align-items:center;gap:10px;max-width:calc(100vw - 40px);min-height:48px;padding:10px 18px;border:1px solid #a08b66;border-radius:30px;background:#151615;color:#f1e9d9;font:500 13px/1.4 Arial,sans-serif;box-shadow:0 8px 30px #0005;cursor:pointer}
+#harum-guide-dialog[data-lume-serverless]{position:fixed;inset:auto 0 0 auto;margin:16px;width:min(440px,calc(100vw - 32px));max-width:calc(100vw - 32px);max-height:calc(100svh - 32px);padding:0;border:1px solid #a08b6655;border-radius:16px;background:#171918;color:#f1e9d9;font:14px/1.6 Arial,sans-serif;box-shadow:0 16px 80px #0007;overflow:auto}
+#harum-guide-dialog::backdrop{background:#0008}
+#harum-guide-dialog .host-dialog-header{position:sticky;top:0;z-index:1;display:flex;align-items:center;gap:12px;padding:18px 20px;background:#171918;border-bottom:1px solid #a08b6644}
+#harum-guide-dialog h2{margin:0;color:#f1e9d9;font:500 28px/1.2 Georgia,serif}
+#harum-guide-dialog .host-kicker{margin:0 0 4px;color:#c5b18c;font-size:9px;letter-spacing:.12em}
+#harum-guide-dialog .host-close{margin-left:auto;min-width:44px;min-height:44px;border:0;background:transparent;color:#e4d7c2;font-size:26px;cursor:pointer}
+#harum-guide-dialog .host-dialog-body{padding:18px 20px}
+#harum-guide-dialog .host-welcome{margin-top:0}
+#harum-guide-dialog .host-shortcuts{display:flex;flex-wrap:wrap;gap:8px}
+#harum-guide-dialog .host-shortcuts a{padding:6px 10px;border:1px solid #a08b6655;border-radius:8px}
+#harum-guide-dialog a{color:#e5c991;text-underline-offset:3px}
+#harum-guide-dialog .host-answer,#harum-guide-dialog .host-question{padding:12px 14px;margin:12px 0;border-radius:10px;background:#222622;overflow-wrap:anywhere}
+#harum-guide-dialog .host-question{margin-left:24px;background:#c5b18c13;border:1px solid #c5b18c22}
+#harum-guide-dialog .host-answer p,#harum-guide-dialog .host-question p{margin:0}
+#harum-guide-dialog .host-answer a{display:inline-block;margin:8px 14px 0 0;min-height:28px}
+#harum-guide-dialog .host-mode{font-size:11px;color:#c8b994}
+#harum-guide-dialog .host-form label{display:block;margin-bottom:6px}
+#harum-guide-dialog .host-input-row{display:flex;gap:8px}
+#harum-guide-dialog .host-input-row input{box-sizing:border-box;min-width:0;width:100%;padding:12px;border:1px solid #a08b6677;border-radius:8px;background:#101211;color:#f1e9d9;font:16px Arial,sans-serif}
+#harum-guide-dialog .host-input-row button{padding:10px 14px;border:1px solid #b6a178;border-radius:8px;background:#b6a178;color:#101211;font:600 13px Arial,sans-serif;cursor:pointer}
+#harum-guide-dialog button:disabled{opacity:.6;cursor:wait}
+#harum-guide-dialog .lume-controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+#harum-guide-dialog .lume-controls button{min-height:44px;padding:6px 8px;border:0;background:transparent;color:#d0c3a9;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+#harum-guide-dialog .lume-controls [hidden]{display:none}
+#harum-guide-dialog .lume-notice,#harum-guide-dialog .host-disclaimer{font-size:11px;color:#bdb9ae;line-height:1.6}
+#harum-guide-dialog :focus-visible,[data-guide-open]:focus-visible{outline:2px solid #e5c991;outline-offset:3px}
+@media(max-width:480px){#harum-guide-dialog[data-lume-serverless]{margin:8px;width:calc(100vw - 16px);max-width:calc(100vw - 16px);max-height:calc(100svh - 16px)}#harum-guide-dialog .host-dialog-body{padding:14px 16px}[data-guide-open].host-launcher{right:12px;bottom:12px}}

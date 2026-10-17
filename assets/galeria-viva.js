@@ -23,6 +23,13 @@ function appendBatch(){let batch=filtered.slice(cursor,cursor+15);const fragment
 function refresh(){const q=search.value.trim().toLocaleLowerCase('pt-BR');filtered=items.filter(x=>(room==='Tudo'||x.room===room)&&(!q||[x.title,x.label,x.detail,x.room].join(' ').toLocaleLowerCase('pt-BR').includes(q)));cursor=0;roots.replaceChildren();document.querySelector('#hn-gallery-end').hidden=true;appendBatch();}
 document.querySelectorAll('[data-hn-room]').forEach(b=>b.addEventListener('click',()=>{room=b.dataset.hnRoom;document.querySelectorAll('[data-hn-room]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));refresh();}));
 search.addEventListener('input',refresh);more.addEventListener('click',appendBatch);
+const museumToggle=document.querySelector('#hn-mode-toggle');
+museumToggle?.addEventListener('click',()=>{
+ const active=roots.classList.toggle('is-immersive');
+ museumToggle.setAttribute('aria-pressed',String(active));
+ museumToggle.textContent=active?'Voltar ao mosaico de obras ↗':'Entrar no modo museu ↗';
+ if(active)roots.scrollTo({left:0,behavior:'auto'});
+});
 const observer='IntersectionObserver'in window?new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)&&cursor<filtered.length)appendBatch()},{rootMargin:'500px'}):null;
 if(observer)observer.observe(sentinel);
 document.querySelector('#hn-viewer-close').addEventListener('click',()=>dialog.close());

@@ -40,10 +40,14 @@ try {
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   page.on('console', message => { if (message.text().startsWith('MODEL')) console.log(message.text()); });
+  const progress = [];
+  page.on('console', message => { if (message.text().startsWith('TOKEN ')) progress.push(message.text()); });
+  const modelRequests = [];
+  page.on('request', request => { if (/\.onnx|\.wasm|transformers\.min/.test(request.url())) modelRequests.push(request.url()); });
   await page.addInitScript(() => {
     const OriginalWorker = window.Worker;
     window.Worker = class extends OriginalWorker {
-      constructor(...args) { super(...args); this.addEventListener('message', ({ data }) => { if (['backend', 'ready', 'error'].includes(data.type)) console.log('MODEL ' + JSON.stringify(data)); }); }
+      constructor(...args) { super(...args); this.addEventListener('message', ({ data }) => { if (['backend', 'ready', 'error'].includes(data.type)) console.log('MODEL ' + JSON.stringify(data)); if (data.type === 'generating') console.log('TOKEN ' + data.tokens); }); }
     };
   });
   await page.route('**/*', async route => {
@@ -58,6 +62,14 @@ try {
   await page.locator('[data-lume-serverless]').waitFor({ state: 'attached' });
   await page.locator('[data-guide-open]').click();
   await page.locator('.lume-ai-panel summary').click();
+  await page.locator('[data-lume-online]').check();
+  await page.locator('[data-guide-input]').fill('Qual é a capital do Brasil?');
+  await page.locator('[data-guide-form] button[type=submit]').click();
+  await page.getByText(/Trechos das fontes consultadas/).waitFor();
+  assert.match(await page.locator('.host-answer').last().innerText(), /Brasília/);
+  assert.deepEqual(modelRequests, []);
+  console.log('PASS: live internet research without any model or runtime download');
+  await page.getByRole('button', { name: 'Limpar contexto', exact: true }).click();
   await page.locator('[data-lume-model]').click();
   await page.getByRole('button', { name: 'Desativar IA quantizada', exact: true }).waitFor({ timeout: 240000 });
   console.log('MODEL LOADED IN REAL BROWSER', await page.locator('[data-lume-model-status]').innerText());
@@ -65,9 +77,12 @@ try {
   await page.locator('[data-guide-input]').fill('Qual é a capital do Brasil?');
   await page.locator('[data-guide-form] button[type=submit]').click();
   await page.locator('.host-answer a[href^="https://www.wikidata.org/"]').first().waitFor({ timeout: 180000 });
+  await page.locator('.host-answer').filter({ hasText: /Brasília/i }).waitFor({ timeout: 180000 });
   const answer = await page.locator('.host-answer').last().innerText();
   console.log('ACTUAL GENERATED ANSWER WITH LIVE INTERNET', answer);
   assert.match(answer, /bras[ií]lia/i);
+  assert.ok(progress.length > 0, 'real token progress reached the UI');
+  assert.ok(!answer.includes('sem síntese de IA'), 'actual model generated the response');
   assert.deepEqual(errors, []);
   await page.locator('[data-lume-model]').click();
   await page.screenshot({ path: '/tmp/lume-quantized-real.png' });

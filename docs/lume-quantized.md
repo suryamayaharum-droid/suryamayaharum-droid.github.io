@@ -1,7 +1,6 @@
 # Lume com modelo quantizado e ferramentas de internet
 
-O modo básico continua disponível. O visitante pode abrir **Conversar com IA e
-pesquisar online** e escolher **Instalar e ativar IA quantizada**. Só então nasce
+O modo básico continua disponível. O visitante pode abrir **Pesquisa leve e IA opcional** e escolher **Instalar e ativar IA quantizada**. Só então nasce
 um Worker e são solicitados o runtime, o tokenizer e os pesos. Não há inferência
 remota, chave de API nem instalação de aplicativo.
 
@@ -19,7 +18,7 @@ remota, chave de API nem instalação de aplicativo.
   arquivos auxiliares. O tamanho não é confundido com memória RAM: a execução
   exige memória adicional e pode falhar em aparelhos com poucos recursos.
 - O template oficial do tokenizer usa `enable_thinking: false`. São gerados
-  até 192 tokens por chamada; a interface permite só uma pergunta por vez.
+  até 96 tokens na resposta (48 no planejamento); a interface permite só uma pergunta por vez.
 
 O download completo pode ser reaproveitado pelo cache do navegador enquanto
 ele permanecer disponível. Cancelar um download incompleto pode exigir reinício.
@@ -31,12 +30,20 @@ uma consulta ativa; sair da página encerra o processo local.
 
 ## Agente e acesso à internet
 
-`LumeAgent` usa o modelo para decidir entre responder e solicitar a ferramenta
-de pesquisa. O plano é JSON validado com ações `search` ou `answer`, query
-limitada e provedor `wikipedia` ou `museum`. Pedidos explícitos de pesquisa e
-perguntas factuais usam uma alternativa determinística se o modelo pequeno não
-produzir um plano válido. Há no máximo uma etapa de pesquisa e uma resposta
+`LumeAgent` encaminha pedidos explícitos e perguntas factuais diretamente à
+pesquisa, antes de qualquer inferência. Isso elimina uma rodada de geração
+nessas consultas. Nos outros casos, pode usar o modelo para escolher a ferramenta. O plano é JSON validado com ações `search` ou `answer`, query
+limitada e provedor `wikipedia` ou `museum`. Pedidos explícitos e perguntas factuais não dependem de um plano produzido
+pelo modelo. Há no máximo uma etapa de pesquisa e uma resposta
 final por pergunta; não há ciclo de ferramentas ilimitado.
+
+A **pesquisa leve funciona sem modelo**: entrega trechos identificados como fontes,
+sem fingir síntese por IA. Perguntas de navegação já conhecidas continuam no
+guia local, salvo pedido explícito de pesquisa. Se o modelo falhar ou atingir o prazo depois da
+consulta, os trechos recuperados continuam disponíveis. Os links aparecem antes
+da geração e o status indica atividade e tempo decorrido. O contexto
+enviado ao modelo contém até duas mensagens anteriores de 240 caracteres, duas
+fontes de 450 caracteres e até 400 caracteres do catálogo.
 
 O controle **Permitir pesquisa na internet** começa desmarcado. Quando marcado,
 termos podem ser enviados diretamente a:
@@ -75,7 +82,9 @@ dos pesos a partir das perguntas.
 O botão de cancelamento aborta pesquisas; se há geração ativa, encerra o Worker
 e resolve a promessa pendente. Timeout de inferência: 120 segundos; timeout de
 carregamento: 15 minutos. IDs separam respostas e Workers terminados não podem
-reativar a interface. Erros restauram a navegação básica e permitem nova tentativa.
+reativar a interface. Erros restauram a navegação básica e permitem nova tentativa. Falhas reconhecidas
+de memória, rede e prazo recebem mensagens distintas. Um encerramento do processo
+pelo sistema operacional pode não produzir uma mensagem JavaScript de erro.
 
 Não há publicação, terminal, execução de JavaScript gerado, acesso administrativo,
 alteração de arquivos ou trabalho com a página fechada. A inteligência é a
@@ -103,10 +112,10 @@ vezes, usa o Worker e o backend WASM reais e consulta as APIs públicas reais
 com TLS verificado pelo host de teste. Não simula os pesos nem o gerador.
 Isso é distinto de validar WebGPU ou um celular Android físico.
 
-Validação desta implementação: **38 testes Node passaram**, os fluxos básicos
+Validação desta implementação: **46 testes Node passaram**, os fluxos básicos
 passaram em Chromium com 1440 px e 390 px, incluindo primeiro clique com
 carregamento lento, e o teste real de CPU/WASM completou carregamento,
-planejamento de pesquisa, consulta ao Wikidata, geração de resposta em português
+pesquisa leve sem download, consulta ao Wikidata, geração de resposta em português
 com fonte e desativação. A revisão dos pesos acima foi efetivamente baixada e
 executada. Não se reivindica validação real de WebGPU/q4f16 ou de Android físico.
 
@@ -123,3 +132,13 @@ Preservar os módulos `lume-model-config.mjs`, `lume-model.worker.mjs`,
 `lume-quantized.mjs`, `lume-web-research.mjs`, a integração em `lume-native.mjs`
 e os estilos ao sincronizar o gerador privado. Os pesos permanecem no provedor
 e no cache do visitante; não são incluídos no repositório GitHub Pages.
+
+Os pesos foram baixados no ambiente de validação e servidos como arquivos locais
+para o teste real. Isso não os instala no ChatGPT. Inserir os bytes em JavaScript
+ou base64 não reduz o download nem a RAM necessária à inferência. Hospedar os
+mesmos pesos junto ao site muda a origem da transferência, mas não corrige uma
+falha que acontece depois de carregá-los. O arquivo q8 de 617 MB também excede
+o limite de 100 MiB por arquivo do GitHub. Não houve publicação desses pesos no
+repositório nem promessa de compatibilidade com todo celular.
+
+Limites: https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github

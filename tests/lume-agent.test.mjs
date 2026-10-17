@@ -67,13 +67,13 @@ test('model can select a search tool and use retrieved sources in the final answ
   const source = { title: 'Desenho', url: 'https://pt.wikipedia.org/wiki/Desenho', excerpt: 'O desenho é uma arte visual.', provider: 'Wikipedia' };
   const model = { generate: async messages => { calls.push(messages); return calls.length === 1 ? '{"action":"search","query":"desenho"}' : 'O desenho é uma arte visual [1].'; } };
   const agent = new LumeAgent({ model, web: { search: async query => { queries.push(query); return [source]; } } });
-  const result = await agent.answer('Explique desenho', { online: true });
+  const result = await agent.answer('desenho', { online: true });
   assert.deepEqual(queries, ['desenho']);
   assert.equal(result.sources[0].url, source.url);
   assert.ok(calls[1].some(message => message.content.includes('O desenho é uma arte visual.')));
 });
 
-test('explicit research still runs if a small model returns malformed tool JSON', async () => {
+test('explicit research does not depend on a valid model plan', async () => {
   let searches = 0;
   const agent = new LumeAgent({ model: { generate: async () => 'not JSON' }, web: { search: async () => { searches++; return []; } } });
   await agent.answer('Pesquise Leonardo da Vinci', { online: true });
@@ -136,4 +136,78 @@ test('structured properties resolve entity labels instead of inferring from unre
   assert.equal(result[0].url, 'https://www.wikidata.org/wiki/Q100');
   assert.equal(calls.length, 3);
   assert.ok(calls.every(url => url.hostname === 'www.wikidata.org'));
+});
+
+test('factual questions search before inference and need only one model pass', async () => {
+  const order = [];
+  const source = { title: 'Brasil', url: 'https://www.wikidata.org/wiki/Q155', excerpt: 'Brasil — capital: Brasília.' };
+  const agent = new LumeAgent({ model: { generate: async () => { order.push('generate'); return 'Brasília [1].'; } }, web: { search: async () => { order.push('search'); return [source]; } } });
+  await agent.answer('Qual é a capital do Brasil?', { online: true, onSources: sources => { assert.equal(sources[0], source); order.push('sources'); } });
+  assert.deepEqual(order, ['search', 'sources', 'generate']);
+});
+
+test('retrieved evidence remains readable if local inference fails after loading', async () => {
+  const source = { title: 'Brasil', url: 'https://www.wikidata.org/wiki/Q155', excerpt: 'Brasil — capital: Brasília.' };
+  const agent = new LumeAgent({ model: { generate: async () => '' }, web: { search: async () => [source] } });
+  const result = await agent.answer('Qual é a capital do Brasil?', { online: true });
+  assert.equal(result.mode, 'sources');
+  assert.match(result.text, /Trechos das fontes/);
+  assert.match(result.text, /Brasília/);
+  assert.equal(result.sources[0].url, source.url);
+});
+
+test('online research works without loading weights or running a model', async () => {
+  let generations = 0;
+  const agent = new LumeAgent({ model: { generate: async () => { generations++; throw Error('must not run'); } }, web: { search: async () => [{ title: 'Monet', excerpt: 'Pintor francês.', url: 'https://pt.wikipedia.org/?curid=1' }] } });
+  const result = await agent.answer('Monet', { online: true, useModel: false });
+  assert.equal(generations, 0);
+  assert.equal(result.mode, 'sources');
+  assert.match(result.text, /Pintor francês/);
+});
+
+test('worker progress reports activity without mixing request IDs', async () => {
+  const { model, reply, workers } = fixture();
+  model.start(); reply({ type: 'ready' });
+  const chunks = [];
+  const pending = model.generate([{ role: 'user', content: 'Olá' }], { onProgress: value => chunks.push(value) });
+  const id = workers[0].sent.at(-1).id;
+  reply({ type: 'generating', id: id + 1, tokens: 10 });
+  reply({ type: 'generating', id, tokens: 1 });
+  reply({ type: 'result', id, text: 'Olá' });
+  await pending;
+  assert.deepEqual(chunks, [1]);
+  model.stop();
+});
+
+test('memory failures remain distinguishable from download errors in the interface state', () => {
+  const { model, reply, states } = fixture();
+  model.start(); reply({ type: 'error', stage: 'generate', code: 'memory' });
+  assert.equal(states.at(-1).code, 'memory');
+  assert.equal(states.at(-1).state, 'error');
+});
+
+test('a timed out loaded worker still returns retrieved facts and releases the model', async () => {
+  const { model, reply } = fixture({ answerTimeout: 10 });
+  model.start(); reply({ type: 'ready' });
+  const agent = new LumeAgent({ model, web: { search: async () => [{ title: 'Brasil', url: 'https://www.wikidata.org/wiki/Q155', excerpt: 'Brasil — capital: Brasília.' }] } });
+  const result = await agent.answer('Qual é a capital do Brasil?', { online: true });
+  assert.match(result.text, /Brasília/);
+  assert.equal(result.mode, 'sources');
+  assert.equal(model.worker, null);
+});
+
+test('plural factual questions bypass the planner on a slow device', async () => {
+  const order = [];
+  const agent = new LumeAgent({ model: { generate: async () => { order.push('generate'); return ''; } }, web: { search: async () => { order.push('search'); return [{ title: 'Cores', excerpt: 'Cores primárias.', url: 'https://pt.wikipedia.org/?curid=1' }]; } } });
+  const result = await agent.answer('Quais são as cores primárias?', { online: true });
+  assert.deepEqual(order, ['search', 'generate']);
+  assert.equal(result.mode, 'sources');
+});
+
+test('a failed implicit search plan still retrieves sources instead of trying inference twice', async () => {
+  let searched = false;
+  const agent = new LumeAgent({ model: { generate: async () => '' }, web: { search: async () => { searched = true; return [{ title: 'Monet', excerpt: 'Pintor francês.', url: 'https://pt.wikipedia.org/?curid=1' }]; } } });
+  const result = await agent.answer('Me conte sobre Monet', { online: true });
+  assert.equal(searched, true);
+  assert.equal(result.mode, 'sources');
 });

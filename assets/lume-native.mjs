@@ -95,7 +95,7 @@ export function mountNativeGuide() {
   const panel = document.createElement('details');
   panel.className = 'lume-ai-panel';
   const summary = document.createElement('summary');
-  summary.textContent = 'Conversar com IA e pesquisar online';
+  summary.textContent = 'Pesquisa leve e IA opcional';
   const modelButton = document.createElement('button');
   modelButton.type = 'button';
   modelButton.dataset.lumeModel = '';
@@ -112,12 +112,12 @@ export function mountNativeGuide() {
   online.addEventListener('change', () => { try { storage?.setItem('harum.lume.ai.online', String(online.checked)); } catch {} });
   onlineLabel.append(online, document.createTextNode(' Permitir pesquisa na internet'));
   const onlineNote = document.createElement('p');
-  onlineNote.textContent = 'Ao permitir, termos podem ser enviados à Wikipedia, Wikidata e ao Art Institute of Chicago. Os links das fontes aparecem com a resposta. Não há envio para um servidor de IA.';
-  panel.append(summary, modelNote, modelButton, modelState, onlineLabel, onlineNote);
-  const model = new QuantizedModel({ onState: ({ state, backend, progress, file }) => {
+  onlineNote.textContent = 'A pesquisa funciona sem baixar o modelo. Sem IA ativa, você recebe trechos das fontes. Ao permitir, termos podem ser enviados à Wikipedia, Wikidata e ao Art Institute of Chicago. Os links das fontes aparecem com a resposta. Não há envio para um servidor de IA.';
+  panel.append(summary, onlineLabel, onlineNote, modelNote, modelButton, modelState);
+  const model = new QuantizedModel({ onState: ({ state, backend, progress, file, code }) => {
     modelButton.textContent = state === 'ready' ? 'Desativar IA quantizada' : state === 'loading' ? 'Cancelar download' : 'Instalar e ativar IA quantizada';
     modelButton.setAttribute('aria-pressed', String(state === 'loading' || state === 'ready'));
-    modelState.textContent = state === 'ready' ? MODEL.label + ' pronto · ' + (backend || 'modelo local') : state === 'loading' ? (Number.isFinite(progress) ? 'Baixando ' + String(file || 'arquivo').slice(0, 70) + ': ' + Math.round(progress) + '%' : 'Preparando o modelo. Você pode continuar usando a navegação local.') : state === 'error' ? 'O modelo não pôde ser executado neste aparelho. A navegação local continua disponível; você pode tentar novamente.' : 'IA quantizada desativada. A navegação local está pronta.';
+    modelState.textContent = state === 'ready' ? MODEL.label + ' pronto · ' + (backend || 'modelo local') : state === 'loading' ? (Number.isFinite(progress) ? 'Baixando ' + String(file || 'arquivo').slice(0, 70) + ': ' + Math.round(progress) + '%' : 'Preparando o modelo. Você pode continuar usando a navegação local.') : state === 'error' ? ({ memory: 'Faltou memória para executar a IA. A pesquisa leve continua disponível.', network: 'Falha ao obter os arquivos da IA. Confira a conexão; a pesquisa leve continua disponível.', 'answer-timeout': 'A IA demorou mais de 2 minutos para responder neste aparelho. Use a pesquisa leve ou tente uma pergunta menor.', 'load-timeout': 'O carregamento ultrapassou 15 minutos. Tente novamente com uma conexão estável.' }[code] || 'A IA não conseguiu executar esta consulta. A pesquisa leve e a navegação local continuam disponíveis.') : 'IA quantizada desativada. A navegação local está pronta.';
     if (state === 'error') { try { storage?.removeItem('harum.lume.ai.enabled'); } catch {} }
   } });
   model.change('idle');
@@ -133,7 +133,7 @@ export function mountNativeGuide() {
   cancel.hidden = true;
   const notice = document.createElement('p');
   notice.className = 'lume-notice';
-  notice.textContent = 'A navegação local funciona sem baixar modelo. Para gerar respostas com IA, ative o modelo opcional abaixo. A pesquisa online é habilitada separadamente.';
+  notice.textContent = 'Navegue pelo site ou habilite a pesquisa leve sem instalar modelo. A geração com IA é opcional e exige download e memória no aparelho.';
   controls.append(clear, cancel);
   form.after(controls, notice, panel);
   const status = () => { if (mode) mode.textContent = (model.ready ? MODEL.label + ' ativo' : 'Lume pronta') + ' · ' + engine.pages.size + ' caminhos do site'; };
@@ -167,6 +167,7 @@ export function mountNativeGuide() {
     // Bound DOM growth during long visits.
     while (messages.children.length > 40) messages.firstElementChild.remove();
     item.scrollIntoView?.({ block: 'nearest', behavior: 'auto' });
+    return item;
   };
   const unlock = () => {
     form.querySelector('button[type="submit"]').disabled = false;
@@ -215,14 +216,17 @@ export function mountNativeGuide() {
     const version = ++generation;
     let answer = engine.answer(question);
     if (answer.kind === 'clear') history.length = 0;
-    if (model.ready && answer.kind !== 'clear') {
+    const researchRequested = online.checked && (['unknown', 'partial', 'discovered'].includes(answer.kind) || /pesquis|busqu|busca|internet|fontes/i.test(question));
+    if ((model.ready || researchRequested) && answer.kind !== 'clear') {
       submit.disabled = true;
       cancel.hidden = false;
       const controller = activeAgent = new AbortController();
+      let sourceItem;
       try {
-        const result = await agent.answer(question, { online: online.checked, siteContext: answer.kind === 'unknown' ? 'Arte Harum: traço, corpo e presença. Não há informação específica para esta pergunta no catálogo local.' : answer.text, history, signal: controller.signal, onStage: text => { if (version === generation && mode) mode.textContent = text; } });
-        if (version !== generation) return;
-        add(result.text || answer.text, answer.actions, false, result.sources);
+        const result = await agent.answer(question, { online: online.checked, useModel: model.ready, onSources: sources => { if (version === generation && model.ready) sourceItem = add('Fontes encontradas. A IA está preparando a resposta no aparelho; você já pode abrir os links.', answer.actions, false, sources); }, siteContext: answer.kind === 'unknown' ? 'Arte Harum: traço, corpo e presença. Não há informação específica para esta pergunta no catálogo local.' : answer.text, history, signal: controller.signal, onStage: text => { if (version === generation && mode) mode.textContent = text; } });
+        if (version !== generation) { if (sourceItem) sourceItem.querySelector('p').textContent = 'Consulta cancelada. Os links das fontes encontradas continuam disponíveis.'; return; }
+        if (sourceItem) sourceItem.querySelector('p').textContent = result.text || answer.text;
+        else add(result.text || answer.text, answer.actions, false, result.sources);
         if (result.searched && !result.sources.length) add('Não consegui recuperar fontes online para esta consulta. Confira a informação antes de utilizá-la.');
         history.push({ role: 'user', content: question }, { role: 'assistant', content: result.text || answer.text });
         if (history.length > 4) history.splice(0, history.length - 4);

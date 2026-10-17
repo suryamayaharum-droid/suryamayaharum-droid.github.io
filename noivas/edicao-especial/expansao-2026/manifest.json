@@ -1,0 +1,717 @@
+{
+  "version": "2026-10-17",
+  "totalSpecial": 61,
+  "baseEdition": 29,
+  "newArtworks": 32,
+  "newPosters": 8,
+  "referenceArtists": 6,
+  "posters": [
+    {
+      "artist": "modigliani",
+      "artistName": "Amedeo Modigliani",
+      "groupIndex": 1,
+      "poster": "/assets/noivas/edicao-especial/expansao-2026/cartazes/modigliani-cartaz-01.webp",
+      "number": 1,
+      "heading": "Cartaz 01",
+      "titles": [
+        "O voto silencioso",
+        "A noiva sonhadora",
+        "Luz mais suave",
+        "Para sempre, em silêncio"
+      ],
+      "items": [
+        {
+          "artist": "modigliani",
+          "artistName": "Amedeo Modigliani",
+          "title": "O voto silencioso",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/modigliani-01.webp",
+          "artistItemNumber": 1,
+          "index": 1,
+          "alt": "Retrato de noiva imaginária de pescoço alongado, véu de renda e pintura terrosa de influência modernista"
+        },
+        {
+          "artist": "modigliani",
+          "artistName": "Amedeo Modigliani",
+          "title": "A noiva sonhadora",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/modigliani-02.webp",
+          "artistItemNumber": 2,
+          "index": 2,
+          "alt": "Retrato de noiva imaginária de pescoço alongado, véu de renda e pintura terrosa de influência modernista"
+        },
+        {
+          "artist": "modigliani",
+          "artistName": "Amedeo Modigliani",
+          "title": "Luz mais suave",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/modigliani-03.webp",
+          "artistItemNumber": 3,
+          "index": 3,
+          "alt": "Retrato de noiva imaginária de pescoço alongado, véu de renda e pintura terrosa de influência modernista"
+        },
+        {
+          "artist": "modigliani",
+          "artistName": "Amedeo Modigliani",
+          "title": "Para sempre, em silêncio",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/modigliani-04.webp",
+          "artistItemNumber": 4,
+          "index": 4,
+          "alt": "Retrato de noiva imaginária de pescoço alongado, véu de renda e pintura terrosa de influência modernista"
+        }
+      ]
+    },
+    {
+      "artist": "modigliani",
+      "artistName": "Amedeo Modigliani",
+      "groupIndex": 2,
+      "poster": "/assets/noivas/edicao-especial/expansao-2026/cartazes/modigliani-cartaz-02.webp",
+      "number": 2,
+      "heading": "Cartaz 02",
+      "titles": [
+        "Promessas de manhã",
+        "O quarto azul",
+        "Depois da cerimônia",
+        "Noiva do verão tardio"
+      ],
+      "items": [
+        {
+          "artist": "modigliani",
+          "artistName": "Amedeo Modigliani",
+          "title": "Promessas de manhã",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/modigliani-05.webp",
+          "artistItemNumber": 5,
+          "index": 5,
+          "alt": "Retrato de noiva imaginária de pescoço alongado, véu de renda e pintura terrosa de influência modernista"
+        },
+        {
+          "artist": "modigliani",
+          "artistName": "Amedeo Modigliani",
+          "title": "O quarto azul",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/modigliani-06.webp",
+          "artistItemNumber": 6,
+          "index": 6,
+          "alt": "Retrato de noiva imaginária de pescoço alongado, véu de renda e pintura terrosa de influência modernista"
+        },
+        {
+          "artist": "modigliani",
+          "artistName": "Amedeo Modigliani",
+          "title": "Depois da cerimônia",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/modigliani-07.webp",
+          "artistItemNumber": 7,
+          "index": 7,
+          "alt": "Retrato de noiva imaginária de pescoço alongado, véu de renda e pintura terrosa de influência modernista"
+        },
+        {
+          "artist": "modigliani",
+          "artistName": "Amedeo Modigliani",
+          "title": "Noiva do verão tardio",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/modigliani-08.webp",
+          "artistItemNumber": 8,
+          "index": 8,
+          "alt": "Retrato de noiva imaginária de pescoço alongado, véu de renda e pintura terrosa de influência modernista"
+        }
+      ]
+    },
+    {
+      "artist": "picasso",
+      "artistName": "Pablo Picasso",
+      "groupIndex": 1,
+      "poster": "/assets/noivas/edicao-especial/expansao-2026/cartazes/picasso-cartaz-01.webp",
+      "number": 3,
+      "heading": "Cartaz 03",
+      "titles": [
+        "O voto moderno",
+        "Noiva contemplativa",
+        "Buquê geométrico",
+        "A noiva eterna"
+      ],
+      "items": [
+        {
+          "artist": "picasso",
+          "artistName": "Pablo Picasso",
+          "title": "O voto moderno",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/picasso-01.webp",
+          "artistItemNumber": 1,
+          "index": 9,
+          "alt": "Retrato imaginário de noiva com rosto cubista geométrico, véu branco, flores claras e planos cromáticos"
+        },
+        {
+          "artist": "picasso",
+          "artistName": "Pablo Picasso",
+          "title": "Noiva contemplativa",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/picasso-02.webp",
+          "artistItemNumber": 2,
+          "index": 10,
+          "alt": "Retrato imaginário de noiva com rosto cubista geométrico, véu branco, flores claras e planos cromáticos"
+        },
+        {
+          "artist": "picasso",
+          "artistName": "Pablo Picasso",
+          "title": "Buquê geométrico",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/picasso-03.webp",
+          "artistItemNumber": 3,
+          "index": 11,
+          "alt": "Retrato imaginário de noiva com rosto cubista geométrico, véu branco, flores claras e planos cromáticos"
+        },
+        {
+          "artist": "picasso",
+          "artistName": "Pablo Picasso",
+          "title": "A noiva eterna",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/picasso-04.webp",
+          "artistItemNumber": 4,
+          "index": 12,
+          "alt": "Retrato imaginário de noiva com rosto cubista geométrico, véu branco, flores claras e planos cromáticos"
+        }
+      ]
+    },
+    {
+      "artist": "picasso",
+      "artistName": "Pablo Picasso",
+      "groupIndex": 2,
+      "poster": "/assets/noivas/edicao-especial/expansao-2026/cartazes/picasso-cartaz-02.webp",
+      "number": 4,
+      "heading": "Cartaz 04",
+      "titles": [
+        "Voto em movimento",
+        "Noiva em pensamento",
+        "Harmonia cubista",
+        "Retrato em planos"
+      ],
+      "items": [
+        {
+          "artist": "picasso",
+          "artistName": "Pablo Picasso",
+          "title": "Voto em movimento",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/picasso-05.webp",
+          "artistItemNumber": 5,
+          "index": 13,
+          "alt": "Retrato imaginário de noiva com rosto cubista geométrico, véu branco, flores claras e planos cromáticos"
+        },
+        {
+          "artist": "picasso",
+          "artistName": "Pablo Picasso",
+          "title": "Noiva em pensamento",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/picasso-06.webp",
+          "artistItemNumber": 6,
+          "index": 14,
+          "alt": "Retrato imaginário de noiva com rosto cubista geométrico, véu branco, flores claras e planos cromáticos"
+        },
+        {
+          "artist": "picasso",
+          "artistName": "Pablo Picasso",
+          "title": "Harmonia cubista",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/picasso-07.webp",
+          "artistItemNumber": 7,
+          "index": 15,
+          "alt": "Retrato imaginário de noiva com rosto cubista geométrico, véu branco, flores claras e planos cromáticos"
+        },
+        {
+          "artist": "picasso",
+          "artistName": "Pablo Picasso",
+          "title": "Retrato em planos",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/picasso-08.webp",
+          "artistItemNumber": 8,
+          "index": 16,
+          "alt": "Retrato imaginário de noiva com rosto cubista geométrico, véu branco, flores claras e planos cromáticos"
+        }
+      ]
+    },
+    {
+      "artist": "van-gogh",
+      "artistName": "Vincent van Gogh",
+      "groupIndex": 1,
+      "poster": "/assets/noivas/edicao-especial/expansao-2026/cartazes/van-gogh-cartaz-01.webp",
+      "number": 5,
+      "heading": "Cartaz 05",
+      "titles": [
+        "Votos de verão",
+        "Noiva em florescimento",
+        "Campos do infinito",
+        "Mar de promessas"
+      ],
+      "items": [
+        {
+          "artist": "van-gogh",
+          "artistName": "Vincent van Gogh",
+          "title": "Votos de verão",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/van-gogh-01.webp",
+          "artistItemNumber": 1,
+          "index": 17,
+          "alt": "Retrato imaginário de noiva entre flores e paisagens com pinceladas expressivas e cores saturadas"
+        },
+        {
+          "artist": "van-gogh",
+          "artistName": "Vincent van Gogh",
+          "title": "Noiva em florescimento",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/van-gogh-02.webp",
+          "artistItemNumber": 2,
+          "index": 18,
+          "alt": "Retrato imaginário de noiva entre flores e paisagens com pinceladas expressivas e cores saturadas"
+        },
+        {
+          "artist": "van-gogh",
+          "artistName": "Vincent van Gogh",
+          "title": "Campos do infinito",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/van-gogh-03.webp",
+          "artistItemNumber": 3,
+          "index": 19,
+          "alt": "Retrato imaginário de noiva entre flores e paisagens com pinceladas expressivas e cores saturadas"
+        },
+        {
+          "artist": "van-gogh",
+          "artistName": "Vincent van Gogh",
+          "title": "Mar de promessas",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/van-gogh-04.webp",
+          "artistItemNumber": 4,
+          "index": 20,
+          "alt": "Retrato imaginário de noiva entre flores e paisagens com pinceladas expressivas e cores saturadas"
+        }
+      ]
+    },
+    {
+      "artist": "klimt",
+      "artistName": "Gustav Klimt",
+      "groupIndex": 1,
+      "poster": "/assets/noivas/edicao-especial/expansao-2026/cartazes/klimt-cartaz-01.webp",
+      "number": 6,
+      "heading": "Cartaz 06",
+      "titles": [
+        "Promessa dourada",
+        "Devaneio em flor",
+        "Noiva-jardim",
+        "O voto de ouro"
+      ],
+      "items": [
+        {
+          "artist": "klimt",
+          "artistName": "Gustav Klimt",
+          "title": "Promessa dourada",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/klimt-01.webp",
+          "artistItemNumber": 1,
+          "index": 21,
+          "alt": "Noiva imaginária em retrato ornamentado com mosaicos de ouro, flores e véu decorativo"
+        },
+        {
+          "artist": "klimt",
+          "artistName": "Gustav Klimt",
+          "title": "Devaneio em flor",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/klimt-02.webp",
+          "artistItemNumber": 2,
+          "index": 22,
+          "alt": "Noiva imaginária em retrato ornamentado com mosaicos de ouro, flores e véu decorativo"
+        },
+        {
+          "artist": "klimt",
+          "artistName": "Gustav Klimt",
+          "title": "Noiva-jardim",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/klimt-03.webp",
+          "artistItemNumber": 3,
+          "index": 23,
+          "alt": "Noiva imaginária em retrato ornamentado com mosaicos de ouro, flores e véu decorativo"
+        },
+        {
+          "artist": "klimt",
+          "artistName": "Gustav Klimt",
+          "title": "O voto de ouro",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/klimt-04.webp",
+          "artistItemNumber": 4,
+          "index": 24,
+          "alt": "Noiva imaginária em retrato ornamentado com mosaicos de ouro, flores e véu decorativo"
+        }
+      ]
+    },
+    {
+      "artist": "schiele",
+      "artistName": "Egon Schiele",
+      "groupIndex": 1,
+      "poster": "/assets/noivas/edicao-especial/expansao-2026/cartazes/schiele-cartaz-01.webp",
+      "number": 7,
+      "heading": "Cartaz 07",
+      "titles": [
+        "Véu e introspecção",
+        "Flor inquieta",
+        "Juramento de flor selvagem",
+        "Um certo silêncio"
+      ],
+      "items": [
+        {
+          "artist": "schiele",
+          "artistName": "Egon Schiele",
+          "title": "Véu e introspecção",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/schiele-01.webp",
+          "artistItemNumber": 1,
+          "index": 25,
+          "alt": "Noiva imaginária de gesto expressivo, olhos introspectivos, mãos marcadas e pintura de contornos angulosos"
+        },
+        {
+          "artist": "schiele",
+          "artistName": "Egon Schiele",
+          "title": "Flor inquieta",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/schiele-02.webp",
+          "artistItemNumber": 2,
+          "index": 26,
+          "alt": "Noiva imaginária de gesto expressivo, olhos introspectivos, mãos marcadas e pintura de contornos angulosos"
+        },
+        {
+          "artist": "schiele",
+          "artistName": "Egon Schiele",
+          "title": "Juramento de flor selvagem",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/schiele-03.webp",
+          "artistItemNumber": 3,
+          "index": 27,
+          "alt": "Noiva imaginária de gesto expressivo, olhos introspectivos, mãos marcadas e pintura de contornos angulosos"
+        },
+        {
+          "artist": "schiele",
+          "artistName": "Egon Schiele",
+          "title": "Um certo silêncio",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/schiele-04.webp",
+          "artistItemNumber": 4,
+          "index": 28,
+          "alt": "Noiva imaginária de gesto expressivo, olhos introspectivos, mãos marcadas e pintura de contornos angulosos"
+        }
+      ]
+    },
+    {
+      "artist": "mucha",
+      "artistName": "Alphonse Mucha",
+      "groupIndex": 1,
+      "poster": "/assets/noivas/edicao-especial/expansao-2026/cartazes/mucha-cartaz-01.webp",
+      "number": 8,
+      "heading": "Cartaz 08",
+      "titles": [
+        "Despertar da primavera",
+        "A hora dourada",
+        "União serena",
+        "O voto das flores"
+      ],
+      "items": [
+        {
+          "artist": "mucha",
+          "artistName": "Alphonse Mucha",
+          "title": "Despertar da primavera",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/mucha-01.webp",
+          "artistItemNumber": 1,
+          "index": 29,
+          "alt": "Noiva imaginária entre lírios e arabescos art nouveau, moldura vegetal e véu translúcido"
+        },
+        {
+          "artist": "mucha",
+          "artistName": "Alphonse Mucha",
+          "title": "A hora dourada",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/mucha-02.webp",
+          "artistItemNumber": 2,
+          "index": 30,
+          "alt": "Noiva imaginária entre lírios e arabescos art nouveau, moldura vegetal e véu translúcido"
+        },
+        {
+          "artist": "mucha",
+          "artistName": "Alphonse Mucha",
+          "title": "União serena",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/mucha-03.webp",
+          "artistItemNumber": 3,
+          "index": 31,
+          "alt": "Noiva imaginária entre lírios e arabescos art nouveau, moldura vegetal e véu translúcido"
+        },
+        {
+          "artist": "mucha",
+          "artistName": "Alphonse Mucha",
+          "title": "O voto das flores",
+          "path": "/assets/noivas/edicao-especial/expansao-2026/obras/mucha-04.webp",
+          "artistItemNumber": 4,
+          "index": 32,
+          "alt": "Noiva imaginária entre lírios e arabescos art nouveau, moldura vegetal e véu translúcido"
+        }
+      ]
+    }
+  ],
+  "works": [
+    {
+      "artist": "modigliani",
+      "artistName": "Amedeo Modigliani",
+      "title": "O voto silencioso",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/modigliani-01.webp",
+      "artistItemNumber": 1,
+      "index": 1,
+      "alt": "Retrato de noiva imaginária de pescoço alongado, véu de renda e pintura terrosa de influência modernista"
+    },
+    {
+      "artist": "modigliani",
+      "artistName": "Amedeo Modigliani",
+      "title": "A noiva sonhadora",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/modigliani-02.webp",
+      "artistItemNumber": 2,
+      "index": 2,
+      "alt": "Retrato de noiva imaginária de pescoço alongado, véu de renda e pintura terrosa de influência modernista"
+    },
+    {
+      "artist": "modigliani",
+      "artistName": "Amedeo Modigliani",
+      "title": "Luz mais suave",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/modigliani-03.webp",
+      "artistItemNumber": 3,
+      "index": 3,
+      "alt": "Retrato de noiva imaginária de pescoço alongado, véu de renda e pintura terrosa de influência modernista"
+    },
+    {
+      "artist": "modigliani",
+      "artistName": "Amedeo Modigliani",
+      "title": "Para sempre, em silêncio",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/modigliani-04.webp",
+      "artistItemNumber": 4,
+      "index": 4,
+      "alt": "Retrato de noiva imaginária de pescoço alongado, véu de renda e pintura terrosa de influência modernista"
+    },
+    {
+      "artist": "modigliani",
+      "artistName": "Amedeo Modigliani",
+      "title": "Promessas de manhã",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/modigliani-05.webp",
+      "artistItemNumber": 5,
+      "index": 5,
+      "alt": "Retrato de noiva imaginária de pescoço alongado, véu de renda e pintura terrosa de influência modernista"
+    },
+    {
+      "artist": "modigliani",
+      "artistName": "Amedeo Modigliani",
+      "title": "O quarto azul",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/modigliani-06.webp",
+      "artistItemNumber": 6,
+      "index": 6,
+      "alt": "Retrato de noiva imaginária de pescoço alongado, véu de renda e pintura terrosa de influência modernista"
+    },
+    {
+      "artist": "modigliani",
+      "artistName": "Amedeo Modigliani",
+      "title": "Depois da cerimônia",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/modigliani-07.webp",
+      "artistItemNumber": 7,
+      "index": 7,
+      "alt": "Retrato de noiva imaginária de pescoço alongado, véu de renda e pintura terrosa de influência modernista"
+    },
+    {
+      "artist": "modigliani",
+      "artistName": "Amedeo Modigliani",
+      "title": "Noiva do verão tardio",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/modigliani-08.webp",
+      "artistItemNumber": 8,
+      "index": 8,
+      "alt": "Retrato de noiva imaginária de pescoço alongado, véu de renda e pintura terrosa de influência modernista"
+    },
+    {
+      "artist": "picasso",
+      "artistName": "Pablo Picasso",
+      "title": "O voto moderno",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/picasso-01.webp",
+      "artistItemNumber": 1,
+      "index": 9,
+      "alt": "Retrato imaginário de noiva com rosto cubista geométrico, véu branco, flores claras e planos cromáticos"
+    },
+    {
+      "artist": "picasso",
+      "artistName": "Pablo Picasso",
+      "title": "Noiva contemplativa",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/picasso-02.webp",
+      "artistItemNumber": 2,
+      "index": 10,
+      "alt": "Retrato imaginário de noiva com rosto cubista geométrico, véu branco, flores claras e planos cromáticos"
+    },
+    {
+      "artist": "picasso",
+      "artistName": "Pablo Picasso",
+      "title": "Buquê geométrico",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/picasso-03.webp",
+      "artistItemNumber": 3,
+      "index": 11,
+      "alt": "Retrato imaginário de noiva com rosto cubista geométrico, véu branco, flores claras e planos cromáticos"
+    },
+    {
+      "artist": "picasso",
+      "artistName": "Pablo Picasso",
+      "title": "A noiva eterna",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/picasso-04.webp",
+      "artistItemNumber": 4,
+      "index": 12,
+      "alt": "Retrato imaginário de noiva com rosto cubista geométrico, véu branco, flores claras e planos cromáticos"
+    },
+    {
+      "artist": "picasso",
+      "artistName": "Pablo Picasso",
+      "title": "Voto em movimento",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/picasso-05.webp",
+      "artistItemNumber": 5,
+      "index": 13,
+      "alt": "Retrato imaginário de noiva com rosto cubista geométrico, véu branco, flores claras e planos cromáticos"
+    },
+    {
+      "artist": "picasso",
+      "artistName": "Pablo Picasso",
+      "title": "Noiva em pensamento",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/picasso-06.webp",
+      "artistItemNumber": 6,
+      "index": 14,
+      "alt": "Retrato imaginário de noiva com rosto cubista geométrico, véu branco, flores claras e planos cromáticos"
+    },
+    {
+      "artist": "picasso",
+      "artistName": "Pablo Picasso",
+      "title": "Harmonia cubista",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/picasso-07.webp",
+      "artistItemNumber": 7,
+      "index": 15,
+      "alt": "Retrato imaginário de noiva com rosto cubista geométrico, véu branco, flores claras e planos cromáticos"
+    },
+    {
+      "artist": "picasso",
+      "artistName": "Pablo Picasso",
+      "title": "Retrato em planos",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/picasso-08.webp",
+      "artistItemNumber": 8,
+      "index": 16,
+      "alt": "Retrato imaginário de noiva com rosto cubista geométrico, véu branco, flores claras e planos cromáticos"
+    },
+    {
+      "artist": "van-gogh",
+      "artistName": "Vincent van Gogh",
+      "title": "Votos de verão",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/van-gogh-01.webp",
+      "artistItemNumber": 1,
+      "index": 17,
+      "alt": "Retrato imaginário de noiva entre flores e paisagens com pinceladas expressivas e cores saturadas"
+    },
+    {
+      "artist": "van-gogh",
+      "artistName": "Vincent van Gogh",
+      "title": "Noiva em florescimento",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/van-gogh-02.webp",
+      "artistItemNumber": 2,
+      "index": 18,
+      "alt": "Retrato imaginário de noiva entre flores e paisagens com pinceladas expressivas e cores saturadas"
+    },
+    {
+      "artist": "van-gogh",
+      "artistName": "Vincent van Gogh",
+      "title": "Campos do infinito",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/van-gogh-03.webp",
+      "artistItemNumber": 3,
+      "index": 19,
+      "alt": "Retrato imaginário de noiva entre flores e paisagens com pinceladas expressivas e cores saturadas"
+    },
+    {
+      "artist": "van-gogh",
+      "artistName": "Vincent van Gogh",
+      "title": "Mar de promessas",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/van-gogh-04.webp",
+      "artistItemNumber": 4,
+      "index": 20,
+      "alt": "Retrato imaginário de noiva entre flores e paisagens com pinceladas expressivas e cores saturadas"
+    },
+    {
+      "artist": "klimt",
+      "artistName": "Gustav Klimt",
+      "title": "Promessa dourada",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/klimt-01.webp",
+      "artistItemNumber": 1,
+      "index": 21,
+      "alt": "Noiva imaginária em retrato ornamentado com mosaicos de ouro, flores e véu decorativo"
+    },
+    {
+      "artist": "klimt",
+      "artistName": "Gustav Klimt",
+      "title": "Devaneio em flor",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/klimt-02.webp",
+      "artistItemNumber": 2,
+      "index": 22,
+      "alt": "Noiva imaginária em retrato ornamentado com mosaicos de ouro, flores e véu decorativo"
+    },
+    {
+      "artist": "klimt",
+      "artistName": "Gustav Klimt",
+      "title": "Noiva-jardim",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/klimt-03.webp",
+      "artistItemNumber": 3,
+      "index": 23,
+      "alt": "Noiva imaginária em retrato ornamentado com mosaicos de ouro, flores e véu decorativo"
+    },
+    {
+      "artist": "klimt",
+      "artistName": "Gustav Klimt",
+      "title": "O voto de ouro",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/klimt-04.webp",
+      "artistItemNumber": 4,
+      "index": 24,
+      "alt": "Noiva imaginária em retrato ornamentado com mosaicos de ouro, flores e véu decorativo"
+    },
+    {
+      "artist": "schiele",
+      "artistName": "Egon Schiele",
+      "title": "Véu e introspecção",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/schiele-01.webp",
+      "artistItemNumber": 1,
+      "index": 25,
+      "alt": "Noiva imaginária de gesto expressivo, olhos introspectivos, mãos marcadas e pintura de contornos angulosos"
+    },
+    {
+      "artist": "schiele",
+      "artistName": "Egon Schiele",
+      "title": "Flor inquieta",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/schiele-02.webp",
+      "artistItemNumber": 2,
+      "index": 26,
+      "alt": "Noiva imaginária de gesto expressivo, olhos introspectivos, mãos marcadas e pintura de contornos angulosos"
+    },
+    {
+      "artist": "schiele",
+      "artistName": "Egon Schiele",
+      "title": "Juramento de flor selvagem",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/schiele-03.webp",
+      "artistItemNumber": 3,
+      "index": 27,
+      "alt": "Noiva imaginária de gesto expressivo, olhos introspectivos, mãos marcadas e pintura de contornos angulosos"
+    },
+    {
+      "artist": "schiele",
+      "artistName": "Egon Schiele",
+      "title": "Um certo silêncio",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/schiele-04.webp",
+      "artistItemNumber": 4,
+      "index": 28,
+      "alt": "Noiva imaginária de gesto expressivo, olhos introspectivos, mãos marcadas e pintura de contornos angulosos"
+    },
+    {
+      "artist": "mucha",
+      "artistName": "Alphonse Mucha",
+      "title": "Despertar da primavera",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/mucha-01.webp",
+      "artistItemNumber": 1,
+      "index": 29,
+      "alt": "Noiva imaginária entre lírios e arabescos art nouveau, moldura vegetal e véu translúcido"
+    },
+    {
+      "artist": "mucha",
+      "artistName": "Alphonse Mucha",
+      "title": "A hora dourada",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/mucha-02.webp",
+      "artistItemNumber": 2,
+      "index": 30,
+      "alt": "Noiva imaginária entre lírios e arabescos art nouveau, moldura vegetal e véu translúcido"
+    },
+    {
+      "artist": "mucha",
+      "artistName": "Alphonse Mucha",
+      "title": "União serena",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/mucha-03.webp",
+      "artistItemNumber": 3,
+      "index": 31,
+      "alt": "Noiva imaginária entre lírios e arabescos art nouveau, moldura vegetal e véu translúcido"
+    },
+    {
+      "artist": "mucha",
+      "artistName": "Alphonse Mucha",
+      "title": "O voto das flores",
+      "path": "/assets/noivas/edicao-especial/expansao-2026/obras/mucha-04.webp",
+      "artistItemNumber": 4,
+      "index": 32,
+      "alt": "Noiva imaginária entre lírios e arabescos art nouveau, moldura vegetal e véu translúcido"
+    }
+  ],
+  "labels": "Generated art inspired by historic artists, not their original paintings."
+}

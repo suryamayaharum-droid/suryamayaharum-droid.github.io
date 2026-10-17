@@ -96,4 +96,18 @@ try {
     await context.close();
     console.log('PASS UI ' + viewport.width + 'px: existing/new shell, cross-page context, discovery, no downloads, XSS, keyboard and layout');
   }
+  const early = await browser.newPage();
+  await early.route('**/*', route => route.request().url().startsWith(origin) ? route.continue() : route.abort());
+  await early.route('**/assets/lume-native.mjs', async route => {
+    await new Promise(resolve => setTimeout(resolve, 900));
+    await route.continue();
+  });
+  await early.goto(origin + '/', { waitUntil: 'domcontentloaded' });
+  await early.locator('[data-guide-open]').click();
+  await early.locator('[data-guide-input]').waitFor({ state: 'visible', timeout: 4000 });
+  await early.locator('[data-guide-input]').fill('como agendar?');
+  await early.locator('[data-guide-form] button[type=submit]').click();
+  await early.locator('.host-answer a[href="/agendar/"]').waitFor();
+  await early.close();
+  console.log('PASS: first click is retained while native modules load slowly');
 } finally { await browser.close(); server.close(); }

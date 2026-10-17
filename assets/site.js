@@ -285,7 +285,17 @@ if(libraryRoot){
 
 
 // Lume shares one lightweight browser-only engine across the public pages.
-import('/assets/lume-native.mjs').then(({mountNativeGuide})=>mountNativeGuide()).catch(()=>{});
+const lumeLauncher=document.querySelector('[data-guide-open]');
+const lumeReady=import('/assets/lume-native.mjs').then(({mountNativeGuide})=>mountNativeGuide()).catch(()=>{});
+// Retain a visitor's first click while the shared modules are still in flight.
+lumeLauncher?.addEventListener('click',()=>{
+  const dialog=document.querySelector('#harum-guide-dialog');
+  if(dialog?.dataset.lumeMounted)return;
+  lumeLauncher.setAttribute('aria-busy','true');
+  lumeReady.then(()=>{
+    if(lumeLauncher.isConnected&&dialog?.dataset.lumeMounted&&!dialog.open)lumeLauncher.click();
+  }).finally(()=>lumeLauncher.removeAttribute('aria-busy'));
+},{once:true});
 
 /* Cross-site ecosystem links; implemented in a separate shared module. */
 (function(){if(document.querySelector('script[data-harum-ecos-loader]'))return;var s=document.createElement('script');s.src='/assets/ecossistema-links.js';s.defer=true;s.dataset.harumEcosLoader='';document.head.append(s)})();

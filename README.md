@@ -30,7 +30,8 @@ Atualizado em 2026-10-15.
 ## Lume: guia local e IA quantizada opcional
 
 A Lume mantém MiniSearch 7.2.0, contexto de navegação e descoberta progressiva
-do sitemap sem baixar modelo. O modo opcional **Qwen3 0.6B quantizado** gera
+do sitemap sem baixar modelo. A pesquisa leve entrega trechos de fontes online sem instalar modelo.
+O modo opcional **Qwen3 0.6B quantizado** gera
 respostas no aparelho e pode pesquisar na Wikipedia, no Wikidata e no Art Institute of
 Chicago, exibindo fontes. Exige ativação explícita e download inicial de
 aproximadamente 650 MB. Não exige backend próprio de IA nem chave de API.

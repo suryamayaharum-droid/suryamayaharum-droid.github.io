@@ -34,9 +34,9 @@ try {
   for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }]) {
     const context = await browser.newContext({ viewport });
     const page = await context.newPage();
-    const errors = [], aiRequests = [];
+    const errors = [], aiRequests = [], researchRequests = [];
     page.on('pageerror', error => errors.push(error.message));
-    page.on('request', request => { if (/huggingface|jsdelivr|\.onnx|\.gguf/.test(request.url())) aiRequests.push(request.url()); });
+    page.on('request', request => { if (/wikipedia|wikidata|api.artic.edu/.test(request.url())) researchRequests.push(request.url()); if (/huggingface|jsdelivr|\.onnx|\.gguf/.test(request.url())) aiRequests.push(request.url()); });
     await page.route('**/*', route => route.request().url().startsWith(origin) ? route.continue() : route.abort());
     await page.addInitScript(() => {
       window.createdModels = 0;
@@ -60,6 +60,14 @@ try {
     await page.locator('.host-answer a[href="/metodo/"]').waitFor();
     await ask('Quero ver as noivas');
     await page.locator('.host-answer a[href="/noivas/"]').waitFor();
+    await page.locator('.lume-ai-panel summary').click();
+    await page.locator('[data-lume-online]').check();
+    await ask('quero agendar');
+    await page.waitForFunction(() => !document.querySelector('[data-guide-form] button[type=submit]').disabled);
+    assert.deepEqual(researchRequests, [], 'known site navigation must not be replaced by external research');
+    assert.match(await page.locator('.host-answer').last().innerText(), /Para iniciar um projeto, acesse Agendar/);
+    await page.locator('[data-lume-online]').uncheck();
+    await ask('Quero ver as noivas');
     await page.goto(origin + '/metodo/');
     await page.locator('[data-guide-open]').click();
     await ask('continue');

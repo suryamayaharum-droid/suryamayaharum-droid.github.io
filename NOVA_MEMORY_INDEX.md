@@ -2,11 +2,11 @@
 
 Versão: 2  
 Atualizado: 2026-10-20  
-Estado do espelhamento externo: **PENDENTE DE UPLOAD E LEITURA DE RETORNO**
+Estado do espelhamento privado: **PENDENTE DE UPLOAD E LEITURA DE RETORNO**
 
 ## Fonte de verdade
 
-Este índice aponta para os registros versionados no GitHub. O TeraBox é um espelho externo de apoio; não sobrescreve automaticamente o repositório.
+Este índice operacional é público no repositório atual e, por isso, não deve conter memória privada ou links de acesso. A memória selecionada deve ser espelhada no TeraBox em `Nova-Memory` como conteúdo privado, sem distribuição por links públicos. O TeraBox não sobrescreve automaticamente o repositório.
 
 - Repositório público: https://github.com/suryamayaharum-droid/suryamayaharum-droid.github.io
 - Ecossistema publicado: https://suryamayaharum-droid.github.io/
@@ -16,7 +16,7 @@ Este índice aponta para os registros versionados no GitHub. O TeraBox é um esp
 
 - Protocolo técnico: [docs/terabox-github-bridge.md](docs/terabox-github-bridge.md)
 - Checkpoint de upload e integridade: [docs/nova-memory-terabox-checkpoint.md](docs/nova-memory-terabox-checkpoint.md)
-- Catálogo público: [data/terabox-catalog.json](data/terabox-catalog.json) — vazio de propósito até existir um link real aprovado.
+- Catálogo público: [data/terabox-catalog.json](data/terabox-catalog.json) — deve permanecer vazio; não distribuir memória ou links privados.
 - Pasta de destino no TeraBox: `Nova-Memory`.
 - Último estado confirmado: pasta criada; tentativa de enviar este índice foi bloqueada; presença no TeraBox e download de retorno ainda não confirmados.
 
@@ -52,7 +52,7 @@ Este índice deliberadamente não contém credenciais, cookies, tokens, links pr
 ## Próximas ações
 
 1. Auditar os links e arquivos centrais do repositório sem remover conteúdo existente.
-2. Enviar este arquivo para `Nova-Memory` por uma sessão TeraBox autenticada.
+2. Autenticar no TeraBox e espelhar a memória selecionada em `Nova-Memory` como pasta privada, sem link público.
 2. Confirmar nome, tamanho e data do arquivo na nuvem.
 3. Baixar uma cópia para uma área separada e comparar o conteúdo.
 4. Só então atualizar o estado para **ESPELHAMENTO VERIFICADO**.

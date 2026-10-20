@@ -74,5 +74,6 @@ A documentação pública de integração está em [TeraBox × GitHub](terabox-g
 - Verificação de leitura no GitHub: concluída; conteúdo retornado com funções de estado, checkpoints, restauração e importação/exportação JSON.
 - Verificação estática: não foram encontrados `fetch(`, `XMLHttpRequest` ou `WebSocket` no arquivo.
 - Escopo: armazenamento local do navegador, sem rede e sem sincronização automática. Não é um processo residente e não substitui o espelhamento privado no TeraBox.
-- Testes em navegador real e integração com a interface ainda pendentes. Antes de armazenar informação sensível, avaliar também a política de privacidade do dispositivo e proteger os backups exportados.
+- Publicação: primeiro acesso retornou 404; uma nova verificação com parâmetro de cache confirmou que o arquivo está servido no GitHub Pages: https://suryamayaharum-droid.github.io/assets/js/nova-core.js?v=adea3776. O asset existente `assets/ecossistema-links.js` também foi confirmado como servido.
+- Limite de validação: a verificação confirmou que o código é servido, não que todos os métodos foram executados em testes automatizados nem que já esteja conectado à interface. Antes de armazenar informação sensível, avaliar a política de privacidade do dispositivo e proteger os backups exportados.
 

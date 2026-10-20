@@ -66,3 +66,13 @@ Marcar a etapa como concluída somente quando houver evidência dos dois lados:
 ## Relação com a ponte pública
 
 A documentação pública de integração está em [TeraBox × GitHub](terabox-github-bridge.md). Não colocar links privados da memória no catálogo público `data/terabox-catalog.json`.
+
+## Nova Core — primeira implementação executável
+
+- Arquivo: [assets/js/nova-core.js](../assets/js/nova-core.js)
+- Commit de criação: `adea3776e1d77adf3ec7d80249d013b640b73396`
+- Verificação de leitura no GitHub: concluída; conteúdo retornado com funções de estado, checkpoints, restauração e importação/exportação JSON.
+- Verificação estática: não foram encontrados `fetch(`, `XMLHttpRequest` ou `WebSocket` no arquivo.
+- Escopo: armazenamento local do navegador, sem rede e sem sincronização automática. Não é um processo residente e não substitui o espelhamento privado no TeraBox.
+- Testes em navegador real e integração com a interface ainda pendentes. Antes de armazenar informação sensível, avaliar também a política de privacidade do dispositivo e proteger os backups exportados.
+

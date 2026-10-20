@@ -1,11 +1,11 @@
 # TeraBox × GitHub — ponte do ecossistema Arte Harum
 
-Status: **BASE TÉCNICA CRIADA; arquivo de memória ainda não validado no TeraBox**  
+Status: **ESPELHAMENTO PRIVADO COMO OBJETIVO; upload e leitura de retorno ainda não verificados**  
 Data: 2026-10-20
 
-## Objetivo
+## Objetivo e regra de distribuição
 
-Manter o GitHub Pages como núcleo público do ecossistema Arte Harum / Studio 23 / HARUM NOIR e usar o TeraBox como acervo de origem quando apropriado. Não mover, apagar ou substituir os acervos atuais nesta etapa.
+O objetivo da Nova é **espelhar a memória selecionada em uma pasta privada do TeraBox, sem distribuir seu conteúdo publicamente**. GitHub Pages continua público apenas para o ecossistema artístico; não deve servir de distribuição da memória privada da Nova. Não inserir conteúdo privado no catálogo público nem publicar links de compartilhamento. O espelho privado exige sessão autenticada e validação de retorno. Não mover, apagar ou substituir os acervos atuais nesta etapa.
 
 ## Estado operacional mais recente
 
@@ -19,7 +19,7 @@ Manter o GitHub Pages como núcleo público do ecossistema Arte Harum / Studio 2
 
 - Este documento registra a arquitetura e os limites de segurança.
 - O arquivo `data/terabox-catalog.json` existe como catálogo inicial vazio. Nenhum link fictício foi publicado.
-- A integração deve ser ligada ao mapa central do ecossistema somente depois de validar links reais e sua visibilidade.
+- **Não integrar a memória privada ao mapa público**. O catálogo permanece vazio e não deve receber links de memória.
 - O fluxo inicial não exige GitHub Actions nem um servidor permanente: catálogo estático e importação manual/seletiva.
 
 ## Limites importantes
@@ -33,11 +33,11 @@ Manter o GitHub Pages como núcleo público do ecossistema Arte Harum / Studio 2
 
 ## Arquitetura por etapas
 
-1. **Catálogo público (agora preparado)** — incluir apenas links de compartilhamento fornecidos e explicitamente aprovados pela pessoa proprietária. O JSON guarda metadados e links deliberadamente públicos.
-2. **Teste de link real** — testar um compartilhamento não sensível, verificar se abre sem autenticação e se pode ser usado como link externo. Não assumir que link de página é um URL direto de mídia.
-3. **Importação seletiva** — baixar manualmente arquivos autorizados e versionar no GitHub apenas materiais adequados ao repositório; para arquivos grandes, manter o TeraBox como origem e usar link externo.
-4. **API oficial** — se houver acesso aprovado à Open Platform, desenhar OAuth e operações de listagem/download num ambiente seguro. Segredos nunca ficam em HTML/JavaScript público.
-5. **Validação** — verificar links, tamanho, licença/proveniência das imagens e se cada item deve ser público ou privado antes de publicar.
+1. **Espelho privado** — autenticar no TeraBox e enviar os arquivos de memória selecionados para `Nova-Memory`; não publicar links.
+2. **Verificação** — conferir nome, tamanho e data; baixar cópia para uma pasta separada e comparar com a origem.
+3. **Proteção contra distribuição** — manter `data/terabox-catalog.json` vazio; não inserir memória ou links privados em páginas públicas.
+4. **Automação futura opcional** — considerar API oficial somente se houver acesso aprovado e um ambiente privado para segredos. Não usar credenciais em HTML/JavaScript público.
+5. **Retomada** — registrar cada passo e não marcar como concluído antes de confirmar o download e a comparação.
 
 ## Estrutura do catálogo
 
@@ -54,7 +54,7 @@ Cada item aprovado poderá ter `id`, `title`, `category`, `description`, `shareU
 
 ## Próxima ação necessária
 
-Retomar o upload de `NOVA_MEMORY_INDEX.md` para `Nova-Memory` usando uma sessão TeraBox autenticada explicitamente, sem substituir arquivos existentes; confirmar a presença e baixar uma cópia de teste para comparar com a origem. Para validar o catálogo público em paralelo, fornecer um link de compartilhamento de um arquivo/pasta **não sensível** e aprovado para publicação. Não enviar senha da conta, cookies ou tokens nesta conversa.
+Abrir uma sessão TeraBox autenticada pelo usuário, enviar os arquivos selecionados para `Nova-Memory` como pasta privada, confirmar a presença e baixar uma cópia de teste para comparar com a origem. Não é necessário fornecer link público de compartilhamento. Não enviar senha, cookies ou tokens no chat.
 
 ## Referências oficiais
 

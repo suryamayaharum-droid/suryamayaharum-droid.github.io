@@ -54,6 +54,7 @@ integrações em `assets/site.js` e `assets/ecossistema-links.js` nas sincroniza
 - Código sem dependências externas de UI: `assets/museu-noir.css`, `assets/harum-method.js`, `assets/galeria-viva.js`. Uso de recursos nativos do navegador reduz custo e falhas no GitHub Pages.
 - Museu de domínio público: referências carregadas por consulta ao Art Institute of Chicago API, filtradas por `is_public_domain === true` e `image_id`. Crédito e link à obra original; não assumir domínio público de artistas contemporâneos.
 - **PRESERVAÇÃO:** antes de qualquer sincronização do gerador privado para este repositório, manter `metodo/`, `galeria-viva/`, os três assets acima, links na `index.html`, `explorar/index.html`, `assets/ecossistema-links.js` e URLs no `sitemap.xml`. A migração não deve executar exclusão desses caminhos.
+- [Consciência operacional e plano de avanço da Nova](docs/nova-consciencia-operacional.md) — contexto consolidado, princípios de execução e próximas etapas.
 - [Ponte TeraBox × GitHub](docs/terabox-github-bridge.md) — arquitetura segura e limites de integração.
 - [Checkpoint da memória Nova × TeraBox](docs/nova-memory-terabox-checkpoint.md) — estado real do espelhamento, integridade e retomada segura.
 - [Catálogo TeraBox (JSON)](data/terabox-catalog.json) — estrutura inicial vazia; adicionar apenas links reais aprovados.

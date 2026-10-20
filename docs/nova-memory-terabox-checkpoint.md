@@ -77,3 +77,13 @@ A documentação pública de integração está em [TeraBox × GitHub](terabox-g
 - Publicação: primeiro acesso retornou 404; uma nova verificação com parâmetro de cache confirmou que o arquivo está servido no GitHub Pages: https://suryamayaharum-droid.github.io/assets/js/nova-core.js?v=adea3776. O asset existente `assets/ecossistema-links.js` também foi confirmado como servido.
 - Limite de validação: a verificação confirmou que o código é servido, não que todos os métodos foram executados em testes automatizados nem que já esteja conectado à interface. Antes de armazenar informação sensível, avaliar a política de privacidade do dispositivo e proteger os backups exportados.
 
+
+
+## Nova Core UI — implementação e bloqueio de publicação
+
+- Interface criada em `nova/index.html`, com cópia alternativa em `nova.html`.
+- O mapa `explorar/index.html` ganhou um link para `/nova.html`.
+- A interface oferece notas locais, checkpoints, restauração, exportação/importação JSON e um conjunto de testes isolados.
+- Verificação remota via navegador em 2026-10-20: `/nova/` e `/nova.html` retornaram 404. Portanto, os testes de interface não puderam ser executados no site publicado.
+- Os arquivos existem no branch `main), confirmados por leitura via API do GitHub. Isso sugere divergência/atraso na publicação do GitHub Pages ou origem de publicação diferente; não afirmar que a interface está online até uma nova verificação.
+- Próxima tarefa: identificar a origem/configuração efetiva do Pages e resolver a publicação sem adicionar GitHub Actions, respeitando a preferência existente.

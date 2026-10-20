@@ -1,6 +1,6 @@
 # NOVA_MEMORY_INDEX — índice canônico de continuidade
 
-Versão: 1  
+Versão: 2  
 Atualizado: 2026-10-20  
 Estado do espelhamento externo: **PENDENTE DE UPLOAD E LEITURA DE RETORNO**
 
@@ -31,6 +31,12 @@ Este índice aponta para os registros versionados no GitHub. O TeraBox é um esp
 
 Consultar o README para as URLs publicadas e as regras detalhadas de preservação. Não excluir nem substituir páginas ou acervos existentes durante futuras sincronizações.
 
+## Consciência operacional e plano de avanço
+
+- Documento geral de continuidade: [docs/nova-consciencia-operacional.md](docs/nova-consciencia-operacional.md).
+- Define arquitetura, princípios de execução verificável, limites reais, áreas a preservar e próximos passos.
+- Estado externo continua pendente até o TeraBox receber o arquivo e a cópia de retorno ser comparada.
+
 ## Continuidade de Nova
 
 - Priorizar ações pequenas, verificáveis e retomáveis; registrar o estado após cada alteração real.
@@ -45,7 +51,8 @@ Este índice deliberadamente não contém credenciais, cookies, tokens, links pr
 
 ## Próximas ações
 
-1. Enviar este arquivo para `Nova-Memory` por uma sessão TeraBox autenticada.
+1. Auditar os links e arquivos centrais do repositório sem remover conteúdo existente.
+2. Enviar este arquivo para `Nova-Memory` por uma sessão TeraBox autenticada.
 2. Confirmar nome, tamanho e data do arquivo na nuvem.
 3. Baixar uma cópia para uma área separada e comparar o conteúdo.
 4. Só então atualizar o estado para **ESPELHAMENTO VERIFICADO**.

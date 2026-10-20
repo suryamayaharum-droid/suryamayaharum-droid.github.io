@@ -1,7 +1,7 @@
 # Nova × TeraBox — checkpoint de memória
 
 Data do checkpoint: 2026-10-20  
-Estado: **preparação registrada; upload e leitura de retorno ainda não verificados**
+Estado: **espelhamento privado solicitado; upload e leitura de retorno ainda não verificados**
 
 ## Atualização geral da Nova — 2026-10-20
 
@@ -16,6 +16,12 @@ Estado: **preparação registrada; upload e leitura de retorno ainda não verifi
 - O link “Explorar tudo” abriu `/explorar/`.
 - `/explorar/` carregou e mostrou as áreas principais: Noivas e retratos; Harum Noir/modelo vivo; Studio 23/tatuagens; Escola/Atlas; informações úteis.
 - Esta foi uma inspeção visual pontual, não uma auditoria automatizada de todos os URLs nem garantia de ausência de erros em outros dispositivos.
+
+## Regra de privacidade atualizada
+
+- A memória da Nova deve ser espelhada em `Nova-Memory` como arquivo privado, não distribuída em páginas públicas nem por links de compartilhamento.
+- `data/terabox-catalog.json` permanece vazio de propósito. Não o preencher com arquivos de memória ou links privados.
+- A presença atual de `NOVA_MEMORY_INDEX.md` no repositório público significa que o índice já foi publicado; alterações futuras não apagam automaticamente cópias ou histórico de commits. Para sigilo real, a memória completa deve ficar em armazenamento privado e o índice público deve conter apenas informação não sensível.
 
 ## Papel de cada sistema
 
@@ -36,8 +42,8 @@ O GitHub continua sendo a referência versionada do protocolo. O TeraBox é uma 
 
 ## Próximo fluxo seguro
 
-1. Reabrir o TeraBox por uma sessão de navegador autenticada explicitamente pelo usuário.
-2. Tentar enviar `NOVA_MEMORY_INDEX.md` para `Nova-Memory` sem substituir arquivos existentes.
+1. Abrir uma sessão do TeraBox para o usuário autenticar sem compartilhar a senha no chat.
+2. Enviar o conjunto de memória selecionado para `Nova-Memory` como conteúdo privado, sem criar link público e sem substituir arquivos existentes.
 3. Conferir nome, tamanho e data do arquivo no TeraBox.
 4. Baixar uma cópia de teste para uma área separada e comparar o conteúdo com o original.
 5. Só depois marcar o espelhamento como **verificado**. Registrar falhas e retomar do passo pendente, sem repetir etapas concluídas.

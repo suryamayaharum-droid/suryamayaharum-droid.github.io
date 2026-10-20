@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#171717">
+<title>Nova Core — laboratório local</title>
+<style>
+:root{color-scheme:dark;--bg:#171717;--panel:#222;--line:#444;--gold:#b69a62;--text:#f3efe6;--muted:#b6b0a4}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top right,#30291f 0,transparent 38%),var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,sans-serif}
+main{width:min(920px,100%);margin:auto;padding:28px 18px 60px}.eyebrow{color:var(--gold);letter-spacing:.18em;text-transform:uppercase;font-size:.75rem}
+h1,h2{font-family:Georgia,serif;font-weight:500}h1{font-size:clamp(2.4rem,7vw,4rem);line-height:1.05;margin:.25em 0}h2{font-size:1.55rem;margin:0 0 10px}
+p{color:var(--muted)}.panel{background:#202020;border:1px solid var(--line);border-radius:16px;padding:20px;margin:16px 0}
+.status{display:flex;flex-wrap:wrap;gap:8px}.pill{border:1px solid #5b523f;color:#e6d5ae;border-radius:99px;padding:5px 10px;font-size:.8rem}
+label{display:block;color:var(--muted);margin:12px 0 6px}input,textarea{width:100%;background:#141414;color:var(--text);border:1px solid #555;border-radius:9px;padding:12px;font:inherit}textarea{min-height:110px;resize:vertical}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}button,.file-button{background:var(--gold);color:#171512;border:0;border-radius:9px;padding:10px 14px;font-weight:650;font-size:.92rem;cursor:pointer}button.secondary,.file-button.secondary{background:#303030;color:var(--text);border:1px solid #555}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+#message{min-height:1.5em;color:#e6d5ae}.notes{display:grid;gap:10px}.note{border-bottom:1px solid #393939;padding:10px 0}.note time{display:block;color:var(--muted);font-size:.78rem}.checkpoint{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;border-bottom:1px solid #393939;padding:10px 0}
+small{color:var(--muted)}footer{margin-top:28px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:.85rem}a{color:#e6d5ae}
+</style>
+</head>
+<body>
+<main>
+<div class="eyebrow">Arte Harum · Nova</div>
+<h1>Memória local.<br>Continuidade real.</h1>
+<p>Laboratório experimental da Nova Core: notas, checkpoints e backups controlados pelo usuário.</p>
+<div class="status"><span class="pill" id="storageStatus">Verificando armazenamento…</span><span class="pill">Sem servidor de memória</span><span class="pill">Sem compartilhamento automático</span></div>
+<section class="panel">
+<h2>Registrar uma nota</h2>
+<p>As notas são guardadas neste navegador e nesta origem. Não inclua senhas, tokens ou informações sensíveis.</p>
+<label for="noteTitle">Título</label><input id="noteTitle" maxlength="120" placeholder="Ex.: Próxima etapa do projeto">
+<label for="noteBody">Nota</label><textarea id="noteBody" maxlength="10000" placeholder="Registre uma decisão, ideia ou tarefa…"></textarea>
+<div class="actions"><button id="saveNote">Guardar nota</button><button id="makeCheckpoint" class="secondary">Criar checkpoint</button></div>
+</section>
+<section class="panel">
+<h2>Memória registrada</h2><div id="notes" class="notes"><p>A carregar…</p></div>
+</section>
+<section class="panel">
+<h2>Recuperação e backups</h2>
+<p>Crie um checkpoint antes de mudanças importantes. A exportação gera um arquivo JSON no seu dispositivo; mantenha-o em local privado.</p>
+<div class="actions"><button id="exportState">Exportar backup JSON</button><label class="file-button secondary" for="importFile">Importar backup</label><input id="importFile" type="file" accept="application/json,.json" hidden></div>
+<h2 style="margin-top:22px">Checkpoints</h2><div id="checkpoints"><p>Nenhum checkpoint listado.</p></div>
+</section>
+<section class="panel">
+<h2>Teste local</h2><p>Executa verificações básicas de criação, atualização, checkpoint, restauração e exportação usando armazenamento isolado em memória — sem tocar nas suas notas reais.</p>
+<div class="actions"><button id="runTests" class="secondary">Executar testes</button></div><div id="testResults" aria-live="polite"></div>
+</section>
+<p id="message" role="status" aria-live="polite"></p>
+<footer>
+<strong>Limites desta versão:</strong> esta página não cria uma IA independente nem executa tarefas em segundo plano. Os dados locais não sincronizam automaticamente entre aparelhos. O espelhamento privado no TeraBox é uma etapa separada e ainda precisa de autenticação e verificação.
+<p><a href="../">Voltar ao site Arte Harum</a> · <a href="https://github.com/suryamayaharum-droid/suryamayaharum-droid.github.io/blob/main/assets/js/nova-core.js">Código do núcleo</a></p>
+</footer>
+</main>
+<script type="module">
+import { createNovaCore } from "../assets/js/nova-core.js";
+const $ = (id) => document.getElementById(id);
+const core = createNovaCore();
+function message(text){$("message").textContent=text;}
+function getState(){return core.read();}
+function render(){
+ const state=getState();
+ $("storageStatus").textContent=core.status().storageAvailable?"Armazenamento local disponível":"Armazenamento local indisponível";
+ const notes=Array.isArray(state.notes)?state.notes:[];
+ $("notes").innerHTML="";
+ if(!notes.length){$("notes").innerHTML="<p>Nenhuma nota ainda. Registre a primeira acima.</p>";}
+ for(const note of [...notes].reverse()){
+  const article=document.createElement("article");article.className="note";
+  const title=document.createElement("strong");title.textContent=note.title||"Sem título";
+  const body=document.createElement("p");body.textContent=note.body||"";body.style.whiteSpace="pre-wrap";
+  const time=document.createElement("time");time.textContent=new Date(note.updatedAt||note.createdAt).toLocaleString();
+  article.append(title,time,body);$("notes").append(article);
+ }
+ const checkpoints=core.listCheckpoints();$("checkpoints").innerHTML="";
+ if(!checkpoints.length){$("checkpoints").innerHTML="<p>Nenhum checkpoint ainda.</p>";}
+ for(const cp of [...checkpoints].reverse()){
+  const row=document.createElement("div");row.className="checkpoint";
+  const info=document.createElement("div");const strong=document.createElement("strong");strong.textContent=cp.label;
+  const time=document.createElement("small");time.textContent=new Date(cp.createdAt).toLocaleString();time.style.display="block";info.append(strong,time);
+  const button=document.createElement("button");button.className="secondary";button.textContent="Restaurar";
+  button.addEventListener("click",()=>{if(!confirm("Restaurar este checkpoint? O estado atual será guardado como checkpoint antes da restauração."))return;try{core.restore(cp.id);render();message("Checkpoint restaurado.");}catch(e){message(e.message);}});
+  row.append(info,button);$("checkpoints").append(row);
+ }
+}
+$("saveNote").addEventListener("click",()=>{
+ const title=$("noteTitle").value.trim(),body=$("noteBody").value.trim();
+ if(!title&&!body){message("Escreva um título ou uma nota antes de guardar.");return;}
+ try{core.update(state=>{state.notes=Array.isArray(state.notes)?state.notes:[];state.notes.push({id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),title,body,createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()});return state;});$("noteTitle").value="";$("noteBody").value="";render();message("Nota guardada neste navegador.");}catch(e){message(e.message);}
+});
+$("makeCheckpoint").addEventListener("click",()=>{try{core.checkpoint("Checkpoint manual");render();message("Checkpoint criado.");}catch(e){message(e.message);}});
+$("exportState").addEventListener("click",()=>{try{const blob=new Blob([core.exportJSON()],{type:"application/json"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="nova-memory-backup.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);message("Backup exportado para o dispositivo.");}catch(e){message(e.message);}});
+$("importFile").addEventListener("change",async(event)=>{const file=event.target.files?.[0];if(!file)return;if(!confirm("Importar substituirá o estado local atual. Exporte um backup antes de continuar. Deseja prosseguir?")){event.target.value="";return;}try{const text=await file.text();core.importJSON(text);render();message("Backup importado.");}catch(e){message("Falha na importação: "+e.message);}finally{event.target.value="";}});
+$("runTests").addEventListener("click",()=>{
+ const output=$("testResults");output.innerHTML="";
+ const memory=new Map();const storage={getItem:k=>memory.has(k)?memory.get(k):null,setItem:(k,v)=>memory.set(k,v),removeItem:k=>memory.delete(k)};
+ const testCore=createNovaCore({key:"test-only",storage});const results=[];
+ const test=(name,fn)=>{try{fn();results.push({name,ok:true});}catch(e){results.push({name,ok:false,error:e.message});}};
+ test("Estado inicial é criado",()=>{if(!Array.isArray(testCore.read().notes))throw Error("notes não é array");});
+ test("Atualização persiste",()=>{testCore.update(s=>{s.notes.push({title:"teste"});});if(testCore.read().notes.length!==1)throw Error("nota não persistiu");});
+ let cp;
+ test("Checkpoint é criado",()=>{cp=testCore.checkpoint("teste");if(!cp.id)throw Error("id ausente");});
+ test("Restauração recupera estado",()=>{testCore.update(s=>{s.notes=[];});testCore.restore(cp.id);if(testCore.read().notes.length!==1)throw Error("estado não restaurado");});
+ test("Exportação JSON é válida",()=>{const parsed=JSON.parse(testCore.exportJSON());if(parsed.format!=="nova-state")throw Error("formato inválido");});
+ for(const r of results){const row=document.createElement("p");row.textContent=(r.ok?"✓ ":"✗ ")+r.name+(r.error?": "+r.error:"");row.style.color=r.ok?"#b8d9b4":"#ff9a9a";output.append(row);}
+ const passed=results.filter(r=>r.ok).length;message("Testes locais: "+passed+"/"+results.length+" aprovados.");
+});
+try{render();}catch(e){message("Não foi possível abrir a memória local: "+e.message);}
+</script>
+</body></html>

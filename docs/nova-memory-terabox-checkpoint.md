@@ -15,9 +15,10 @@ O GitHub continua sendo a referência versionada do protocolo. O TeraBox é uma 
 
 1. O acesso ao TeraBox foi realizado por meio do fluxo de login com Google.
 2. A pasta `Nova-Memory` foi criada no TeraBox.
-3. O envio de `NOVA_MEMORY_INDEX.md` foi bloqueado pelo fluxo de seleção/upload usado.
-4. **Não foi confirmado** que o arquivo chegou ao TeraBox nem que pode ser baixado de volta.
-5. O perfil de automação disponível ainda não registra uma sessão autenticada no domínio TeraBox; não presumir que a sessão anterior continua disponível.
+3. O envio anterior de `NOVA_MEMORY_INDEX.md` foi bloqueado pelo fluxo de seleção/upload usado.
+4. O índice foi agora criado e versionado no GitHub em [`NOVA_MEMORY_INDEX.md`](../NOVA_MEMORY_INDEX.md), pronto para nova tentativa de upload.
+5. **Não foi confirmado** que o arquivo chegou ao TeraBox nem que pode ser baixado de volta.
+6. O perfil de automação disponível ainda não registra uma sessão autenticada no domínio TeraBox; não presumir que a sessão anterior continua disponível.
 
 ## Próximo fluxo seguro
 

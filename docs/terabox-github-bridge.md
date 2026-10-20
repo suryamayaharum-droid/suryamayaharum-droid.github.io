@@ -1,11 +1,19 @@
 # TeraBox × GitHub — ponte do ecossistema Arte Harum
 
-Status: **BASE TÉCNICA CRIADA; validação de compartilhamento pendente**  
+Status: **BASE TÉCNICA CRIADA; arquivo de memória ainda não validado no TeraBox**  
 Data: 2026-10-20
 
 ## Objetivo
 
 Manter o GitHub Pages como núcleo público do ecossistema Arte Harum / Studio 23 / HARUM NOIR e usar o TeraBox como acervo de origem quando apropriado. Não mover, apagar ou substituir os acervos atuais nesta etapa.
+
+## Estado operacional mais recente
+
+- A pasta `Nova-Memory` foi criada no TeraBox durante uma sessão de login com Google.
+- O envio de `NOVA_MEMORY_INDEX.md` foi bloqueado no fluxo de upload usado.
+- A presença do arquivo no TeraBox e o teste de download/leitura de retorno **não foram confirmados**.
+- O perfil de automação disponível não registra login no domínio TeraBox; uma sessão anterior não deve ser presumida ativa.
+- O checkpoint de retomada está em [`docs/nova-memory-terabox-checkpoint.md`](nova-memory-terabox-checkpoint.md).
 
 ## O que foi preparado no GitHub
 
@@ -46,7 +54,7 @@ Cada item aprovado poderá ter `id`, `title`, `category`, `description`, `shareU
 
 ## Próxima ação necessária
 
-Enviar um link de compartilhamento do TeraBox para um arquivo ou pasta de teste **não sensível**, preferencialmente sem código de extração. Com isso, validar se abre e pode ser usado como link externo. Não enviar senha da conta, cookies ou tokens nesta conversa.
+Retomar o upload de `NOVA_MEMORY_INDEX.md` para `Nova-Memory` usando uma sessão TeraBox autenticada explicitamente, sem substituir arquivos existentes; confirmar a presença e baixar uma cópia de teste para comparar com a origem. Para validar o catálogo público em paralelo, fornecer um link de compartilhamento de um arquivo/pasta **não sensível** e aprovado para publicação. Não enviar senha da conta, cookies ou tokens nesta conversa.
 
 ## Referências oficiais
 

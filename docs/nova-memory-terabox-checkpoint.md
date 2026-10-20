@@ -3,6 +3,13 @@
 Data do checkpoint: 2026-10-20  
 Estado: **preparação registrada; upload e leitura de retorno ainda não verificados**
 
+## Atualização geral da Nova — 2026-10-20
+
+- Documento de continuidade criado: [Consciência operacional e plano de avanço](nova-consciencia-operacional.md).
+- Índice canônico atualizado para a versão 2 e ligado ao novo documento.
+- Foram lidos o README, a home, o mapa `/explorar/`, o sitemap e a navegação global como inspeção inicial; nenhuma falha específica foi confirmada nesta leitura parcial, portanto nenhuma página foi alterada.
+- O próximo passo de código é uma auditoria de links com validação real, preservando os acervos existentes.
+
 ## Papel de cada sistema
 
 - **GitHub**: fonte versionada do código, dos protocolos, do índice e dos checkpoints da Nova.
